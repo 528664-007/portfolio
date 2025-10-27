@@ -4,27 +4,33 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Sameer Yaseen - Portfolio</title>
-  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" media="print" onload="this.media='all'"/> <!-- Deferred loading for icons -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" media="print" onload="this.media='all'"/>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'"/>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet" media="print" onload="this.media='all'"/>
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="style.css" />
-  <link rel="preload" as="image" href="images/1000066968.png" /> <!-- Preload main image -->
+  <link rel="preload" as="image" href="images/1000066968.png" />
 </head>
 <body>
-  <!-- Loader (reduced timeout) -->
+  <!-- Loader -->
   <div class="loader">
     <div class="warp-effect"></div>
   </div>
 
-  <!-- Particle Container (reduced particles for performance) -->
+  <!-- Particle Container -->
   <div id="particles"></div>
 
-  <!-- Reduced Stars and Asteroids for smaller DOM -->
+  <!-- Stars and Asteroids -->
   <div class="star"></div>
   <div class="star"></div>
   <div class="star"></div>
   <div class="star"></div>
+  <div class="star"></div>
+  <div class="star"></div>
+  <div class="star"></div>
+  <div class="star"></div>
+  <div class="asteroid"></div>
+  <div class="asteroid"></div>
   <div class="asteroid"></div>
   <div class="asteroid"></div>
 
@@ -40,8 +46,9 @@
     </ul>
   </nav>
 
-  <!-- Background Bars (reduced to 20 bars for performance) -->
+  <!-- Background Bars -->
   <div class="bars-animation">
+    <!-- Repeat 50 bars for full width coverage -->
     <div class="bar" style="--i:0"></div>
     <div class="bar" style="--i:1"></div>
     <div class="bar" style="--i:2"></div>
@@ -62,6 +69,36 @@
     <div class="bar" style="--i:17"></div>
     <div class="bar" style="--i:18"></div>
     <div class="bar" style="--i:19"></div>
+    <div class="bar" style="--i:20"></div>
+    <div class="bar" style="--i:21"></div>
+    <div class="bar" style="--i:22"></div>
+    <div class="bar" style="--i:23"></div>
+    <div class="bar" style="--i:24"></div>
+    <div class="bar" style="--i:25"></div>
+    <div class="bar" style="--i:26"></div>
+    <div class="bar" style="--i:27"></div>
+    <div class="bar" style="--i:28"></div>
+    <div class="bar" style="--i:29"></div>
+    <div class="bar" style="--i:30"></div>
+    <div class="bar" style="--i:31"></div>
+    <div class="bar" style="--i:32"></div>
+    <div class="bar" style="--i:33"></div>
+    <div class="bar" style="--i:34"></div>
+    <div class="bar" style="--i:35"></div>
+    <div class="bar" style="--i:36"></div>
+    <div class="bar" style="--i:37"></div>
+    <div class="bar" style="--i:38"></div>
+    <div class="bar" style="--i:39"></div>
+    <div class="bar" style="--i:40"></div>
+    <div class="bar" style="--i:41"></div>
+    <div class="bar" style="--i:42"></div>
+    <div class="bar" style="--i:43"></div>
+    <div class="bar" style="--i:44"></div>
+    <div class="bar" style="--i:45"></div>
+    <div class="bar" style="--i:46"></div>
+    <div class="bar" style="--i:47"></div>
+    <div class="bar" style="--i:48"></div>
+    <div class="bar" style="--i:49"></div>
   </div>
 
   <!-- Home -->
@@ -81,7 +118,7 @@
     <div class="home-img">
       <div class="img-box">
         <div class="img-item">
-          <img src="images/1000066968.png" alt="Sameer Yaseen" loading="lazy"> <!-- Lazy loading for image -->
+          <img src="images/1000066968.png" alt="Sameer Yaseen"> <!-- Changed to relative path; upload the image to your project folder -->
         </div>
       </div>
     </div>
@@ -159,7 +196,7 @@
       <!-- Box 1 -->
       <div class="portfolio-item">
         <div class="portfolio-img">
-          <img src="images/ecommerce-recommender.jpg" alt="E-commerce Recommender" loading="lazy"> <!-- Use local images -->
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRL-kazC2b68IRl8Oz-NGhWDwjSYHyoYUyssQ&s" alt="E-commerce Recommender">
         </div>
         <div class="portfolio-content">
           <h3>🛒 E-commerce Recommender</h3>
@@ -171,7 +208,7 @@
       <!-- Box 2 -->
       <div class="portfolio-item">
         <div class="portfolio-img">
-          <img src="images/blockchain-tracker.jpg" alt="Blockchain Product Tracker" loading="lazy">
+          <img src="https://appinventiv.com/wp-content/uploads/2023/05/How-can-blockchain-be-used-to-strengthen-the-medical-supply-chain-05.webp" alt="Blockchain Product Tracker">
         </div>
         <div class="portfolio-content">
           <h3>🔐 Blockchain Product Tracker</h3>
@@ -183,7 +220,7 @@
       <!-- Box 3 -->
       <div class="portfolio-item">
         <div class="portfolio-img">
-          <img src="images/debate-organizer.jpg" alt="Debate Event Organizer" loading="lazy">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRr4d6WhPuOg-JHepH6zwCbJ1pYFohwcvyReg&s" alt="Debate Event Organizer">
         </div>
         <div class="portfolio-content">
           <h3>🎤 Debate Event Organizer</h3>
@@ -195,7 +232,7 @@
       <!-- Box 4 -->
       <div class="portfolio-item">
         <div class="portfolio-img">
-          <img src="images/firebase-auth.jpg" alt="Firebase Auth Integration" loading="lazy">
+          <img src="https://www.amarinfotech.com/featureimages/Firebase-Authentication-and-Real-time-Database-Integration-in-Android.jpg" alt="Firebase Auth Integration">
         </div>
         <div class="portfolio-content">
           <h3>🔑 Firebase Auth Integration</h3>
@@ -207,7 +244,7 @@
       <!-- Box 5 -->
       <div class="portfolio-item">
         <div class="portfolio-img">
-          <img src="images/road-damage.jpg" alt="AI Road Damage Reporter" loading="lazy">
+          <img src="https://www.cyberswift.com/blog/wp-content/uploads/2023/07/AI-Based-Pothole-Detection.jpg" alt="AI Road Damage Reporter">
         </div>
         <div class="portfolio-content">
           <h3>🛣️ AI Road Damage Reporter</h3>
@@ -219,7 +256,7 @@
       <!-- Box 6 -->
       <div class="portfolio-item">
         <div class="portfolio-img">
-          <img src="images/lung-cancer.jpg" alt="Lung Cancer Detection" loading="lazy">
+          <img src="https://pub.mdpi-res.com/cancers/cancers-14-05569/article_deploy/html/images/cancers-14-05569-g001.png?1710469853" alt="Lung Cancer Detection">
         </div>
         <div class="portfolio-content">
           <h3>🧬 Lung Cancer Detection</h3>
@@ -230,7 +267,7 @@
       <!-- Box 7 -->
       <div class="portfolio-item">
         <div class="portfolio-img">
-          <img src="images/influencer-detection.jpg" alt="Influencer Detection System" loading="lazy">
+          <img src="https://visiblenetworklabs.com/wp-content/uploads/2024/01/What-is-SNA-Map.png" alt="Influencer Detection System">
         </div>
         <div class="portfolio-content">
           <h3>📊 Influencer Detection System</h3>
@@ -242,7 +279,7 @@
       <!-- Box 8 -->
       <div class="portfolio-item">
         <div class="portfolio-img">
-          <img src="images/computer-vision.jpg" alt="Real-time Computer Vision System" loading="lazy">
+          <img src="https://viso.ai/wp-content/uploads/2022/07/office-cv-detection-real-time-computer-vision-1060x708.jpg" alt="Real-time Computer Vision System">
         </div>
         <div class="portfolio-content">
           <h3>👁️ Real-time Computer Vision System</h3>
@@ -254,7 +291,7 @@
       <!-- Box 9 -->
       <div class="portfolio-item">
         <div class="portfolio-img">
-          <img src="images/stock-prediction.jpg" alt="Stock Price Prediction" loading="lazy">
+          <img src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXeeDvryPgpGpj_8OQWQtY264bbEstdeIaDbwYeuwtSFVi1JMgnNRkQ7KF0bxWkeg2gnzde3wFdvCB1igHakQPOb65bXEfSD80giu2_BBRdrEDHjC-7vwGkyUlQDmubO7ttURcbg?key=WPxepCjdaPjfMX3Er6x4YyAe" alt="Stock Price Prediction">
         </div>
         <div class="portfolio-content">
           <h3>📈 Stock Price Prediction</h3>
@@ -266,7 +303,7 @@
       <!-- Box 10 -->
       <div class="portfolio-item">
         <div class="portfolio-img">
-          <img src="images/ai-chatbot.jpg" alt="AI Chatbot" loading="lazy">
+          <img src="https://blog.happyfox.com/wp-content/uploads/2020/10/How-AI-Chatbots-are-Transforming-Customer-Service.png" alt="AI Chatbot">
         </div>
         <div class="portfolio-content">
           <h3>🤖 AI Chatbot</h3>
@@ -278,7 +315,7 @@
       <!-- Box 11 -->
       <div class="portfolio-item">
         <div class="portfolio-img">
-          <img src="images/weather-app.jpg" alt="Weather Forecasting App" loading="lazy">
+          <img src="https://ucarecdn.com/6320962b-d4bf-4cfc-a66c-7972492f77c0/" alt="Weather Forecasting App">
         </div>
         <div class="portfolio-content">
           <h3>☁️ Weather Forecasting App</h3>
@@ -290,7 +327,7 @@
       <!-- Box 12 -->
       <div class="portfolio-item">
         <div class="portfolio-img">
-          <img src="images/face-recognition.jpg" alt="Face Recognition System" loading="lazy">
+          <img src="https://itchronicles.com/wp-content/uploads/2023/07/face-recognition.jpg" alt="Face Recognition System">
         </div>
         <div class="portfolio-content">
           <h3>😀 Face Recognition System</h3>
@@ -424,21 +461,21 @@
     <p id="responseMsg" style="color: green; margin-top: 10px;"></p>
   </section>
 
-  <!-- Scripts (async and defer for faster loading) -->
-  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js" async defer></script>
-  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js" async defer></script>
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
   <script>
     // EmailJS Initialization
     (function() {
       emailjs.init({
-        publicKey: "YEeFJ2YX85-wtEZJf"
+        publicKey: "YEeFJ2YX85-wtEZJf" // Updated public key
       });
     })();
 
-    // Particles.js (reduced number for performance)
+    // Particles.js
     particlesJS('particles', {
       particles: {
-        number: { value: 40, density: { enable: true, value_area: 800 } }, // Reduced from 80
+        number: { value: 80, density: { enable: true, value_area: 800 } },
         color: { value: '#ffffff' },
         shape: { type: 'circle' },
         opacity: { value: 0.5, random: true },
@@ -454,12 +491,12 @@
       retina_detect: true
     });
 
-    // Loader hide after page load (reduced timeout)
+    // Loader hide after page load
     window.addEventListener('load', function() {
       setTimeout(() => {
         const loader = document.querySelector('.loader');
         if (loader) loader.classList.add('hidden');
-      }, 1000); // Reduced from 2000ms
+      }, 2000);
     });
 
     // Roles text animation
@@ -512,7 +549,7 @@
 
     if (form) {
       form.addEventListener('submit', function(event) {
-        event.preventDefault();
+        event.preventDefault(); // Prevent page reload
 
         const name = document.getElementById('name').value.trim();
         const email = document.getElementById('email').value.trim();
@@ -531,7 +568,7 @@
           to_email: "sameerfayaz1028@gmail.com"
         };
 
-        emailjs.send("service_68forxu", "template_n7hfy2u", templateParams)
+        emailjs.send("service_68forxu", "template_n7hfy2u", templateParams) // Updated template ID
           .then(function(response) {
             console.log("SUCCESS!", response.status, response.text);
             responseMsg.style.color = "green";
