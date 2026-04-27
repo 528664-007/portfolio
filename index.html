@@ -3,811 +3,1389 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Sameer Yaseen - Portfolio</title>
+  <title>Sameer Yaseen – Portfolio</title>
   <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet"/>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet"/>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+
   <!-- Loader -->
-  <div class="loader">
-    <div class="warp-effect"></div>
+  <div class="loader" id="loader">
+    <canvas class="loader-canvas" id="loaderCanvas"></canvas>
+    <div class="loader-content">
+      <div class="loader-orbit loader-orbit-1">
+        <div class="loader-planet lp-1"></div>
+      </div>
+      <div class="loader-orbit loader-orbit-2">
+        <div class="loader-planet lp-2"></div>
+      </div>
+      <div class="loader-orbit loader-orbit-3">
+        <div class="loader-planet lp-3"></div>
+      </div>
+      <div class="loader-core">
+        <div class="loader-corona lc-1"></div>
+        <div class="loader-corona lc-2"></div>
+        <div class="loader-corona lc-3"></div>
+        <img src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExMTN4eDdrbTZ3M2xrNjgzY2l4cnNxM2d0MWRxcDB3b25mNDB4N3VpaSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/GltC4HZLjJLvq/giphy.gif" alt="Loading..." class="loader-gif">
+      </div>
+      <div class="loader-shooting-star lss1"></div>
+      <div class="loader-shooting-star lss2"></div>
+      <div class="loader-shooting-star lss3"></div>
+    </div>
+    <div class="loader-text-area">
+      <div class="loader-name">SAMEER YASEEN</div>
+      <div class="loader-sub">Initialising portfolio<span class="loader-dots"><span>.</span><span>.</span><span>.</span></span></div>
+      <div class="loader-bar-wrap"><div class="loader-bar-fill"></div></div>
+    </div>
   </div>
 
-  <!-- Particle Container -->
-  <div id="particles"></div>
+  <!-- Cursor Glow -->
+  <div class="cursor-glow" id="cursorGlow"></div>
 
-  <!-- Stars and Asteroids -->
-  <div class="star"></div>
-  <div class="star"></div>
-  <div class="star"></div>
-  <div class="star"></div>
-  <div class="star"></div>
-  <div class="star"></div>
-  <div class="star"></div>
-  <div class="star"></div>
-  <div class="asteroid"></div>
-  <div class="asteroid"></div>
-  <div class="asteroid"></div>
-  <div class="asteroid"></div>
+  <!-- Canvas Stars -->
+  <canvas id="starCanvas"></canvas>
 
   <!-- Navbar -->
-  <nav class="navbar">
-    <a href="#" class="logo">Portfolio.</a>
-    <ul>
-      <li class="active"><a href="#home">Home</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#portfolio">Projects</a></li>
-      <li><a href="#service">Service</a></li>
-      <li><a href="#contact">Contact</a></li>
+  <nav class="navbar" id="navbar">
+    <a href="#home" class="logo">SY<span>.</span></a>
+    <ul class="nav-links">
+      <li><a href="#home" class="nav-link active" data-label="Home">Home</a></li>
+      <li><a href="#about" class="nav-link" data-label="About">About</a></li>
+      <li><a href="#portfolio" class="nav-link" data-label="Projects">Projects</a></li>
+      <li><a href="#service" class="nav-link" data-label="Services">Services</a></li>
+      <li><a href="#contact" class="nav-link" data-label="Contact">Contact</a></li>
     </ul>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
   </nav>
 
-  <!-- Background Bars -->
-  <div class="bars-animation">
-    <!-- Repeat 50 bars for full width coverage -->
-    <div class="bar" style="--i:0"></div>
-    <div class="bar" style="--i:1"></div>
-    <div class="bar" style="--i:2"></div>
-    <div class="bar" style="--i:3"></div>
-    <div class="bar" style="--i:4"></div>
-    <div class="bar" style="--i:5"></div>
-    <div class="bar" style="--i:6"></div>
-    <div class="bar" style="--i:7"></div>
-    <div class="bar" style="--i:8"></div>
-    <div class="bar" style="--i:9"></div>
-    <div class="bar" style="--i:10"></div>
-    <div class="bar" style="--i:11"></div>
-    <div class="bar" style="--i:12"></div>
-    <div class="bar" style="--i:13"></div>
-    <div class="bar" style="--i:14"></div>
-    <div class="bar" style="--i:15"></div>
-    <div class="bar" style="--i:16"></div>
-    <div class="bar" style="--i:17"></div>
-    <div class="bar" style="--i:18"></div>
-    <div class="bar" style="--i:19"></div>
-    <div class="bar" style="--i:20"></div>
-    <div class="bar" style="--i:21"></div>
-    <div class="bar" style="--i:22"></div>
-    <div class="bar" style="--i:23"></div>
-    <div class="bar" style="--i:24"></div>
-    <div class="bar" style="--i:25"></div>
-    <div class="bar" style="--i:26"></div>
-    <div class="bar" style="--i:27"></div>
-    <div class="bar" style="--i:28"></div>
-    <div class="bar" style="--i:29"></div>
-    <div class="bar" style="--i:30"></div>
-    <div class="bar" style="--i:31"></div>
-    <div class="bar" style="--i:32"></div>
-    <div class="bar" style="--i:33"></div>
-    <div class="bar" style="--i:34"></div>
-    <div class="bar" style="--i:35"></div>
-    <div class="bar" style="--i:36"></div>
-    <div class="bar" style="--i:37"></div>
-    <div class="bar" style="--i:38"></div>
-    <div class="bar" style="--i:39"></div>
-    <div class="bar" style="--i:40"></div>
-    <div class="bar" style="--i:41"></div>
-    <div class="bar" style="--i:42"></div>
-    <div class="bar" style="--i:43"></div>
-    <div class="bar" style="--i:44"></div>
-    <div class="bar" style="--i:45"></div>
-    <div class="bar" style="--i:46"></div>
-    <div class="bar" style="--i:47"></div>
-    <div class="bar" style="--i:48"></div>
-    <div class="bar" style="--i:49"></div>
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#home" class="mob-link">Home</a>
+    <a href="#about" class="mob-link">About</a>
+    <a href="#portfolio" class="mob-link">Projects</a>
+    <a href="#service" class="mob-link">Services</a>
+    <a href="#contact" class="mob-link">Contact</a>
   </div>
 
   <!-- Home -->
   <section class="home" id="home">
-    <div class="home-info">
-      <h1>Sameer Yaseen</h1>
-      <h2>I'm a <span id="dynamic-text">Student</span></h2>
-      <p>Results-driven pre-final-year Computer Science and Engineering student with a dual degree in Data Science from IIT Madras. Strong proficiency in Python, SQL, Java, and C++, with hands-on experience in data analysis, machine learning, and AI-driven systems. Skilled in building end-to-end data pipelines, performing exploratory data analysis, and developing real-time computer vision and ML applications using OpenCV, Flask, and REST APIs. Experienced in graph-based analytics for influencer detection, blockchain-enabled data tracking solutions, and applying data structures and algorithms to solve complex problems. Proven ability to collaborate in agile teams, leverage Git/GitHub for version control, and deliver scalable, data-driven insights with strong analytical and problem-solving skills.</p>
-      <a href="https://drive.google.com/file/d/1dmvZTx2L4w5XyAL_txLu4PN9q8AOB2F7/view?usp=drive_link" download class="btn">Download CV</a>
-      <div class="sci">
-        <a href="https://github.com/528664-007" target="_blank"><i class='bx bxl-github'></i></a>
-        <a href="https://www.linkedin.com/in/sameer-yaseen-a-s-7aa162325" target="_blank"><i class='bx bxl-linkedin'></i></a>
-        <a href="https://www.instagram.com/sameer_00_007/" target="_blank"><i class='bx bxl-instagram'></i></a>
-        <a href="https://x.com/Sameer_00_007" target="_blank" aria-label="X">
-  <svg width="22" height="22" viewBox="0 0 1200 1227" fill="currentColor"
-       xmlns="http://www.w3.org/2000/svg">
-    <path d="M714.3 519.3L1160 0H1054L668.5 450.6L364.1 0H0L467.7 687.4L0 1227H106L514.2 745.3L835.9 1227H1200L714.3 519.3Z"/>
-  </svg>
-</a></div>
+    <div class="home-content">
+      <div class="home-tag" data-animate="fade-up">Available for opportunities</div>
+      <h1 class="home-title" data-animate="fade-up" data-delay="100">
+        <span class="line">Sameer</span>
+        <span class="line accent">Yaseen</span>
+      </h1>
+      <h2 class="home-role" data-animate="fade-up" data-delay="200">
+        <span class="role-prefix">I build </span>
+        <span class="role-dynamic" id="dynamicText">intelligent systems</span>
+      </h2>
+      <p class="home-desc" data-animate="fade-up" data-delay="300">
+        Pre-final-year CS & Engineering student (RIT Chennai) + B.S. Data Science from IIT Madras. 
+        Specialising in AI/ML, computer vision, and data-driven solutions. 
+        Open to internships and collaborative projects.
+      </p>
+      <div class="home-actions" data-animate="fade-up" data-delay="400">
+        <a href="https://drive.google.com/file/d/1dmvZTx2L4w5XyAL_txLu4PN9q8AOB2F7/view?usp=drive_link" target="_blank" class="btn-primary">
+          Download CV
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        </a>
+        <a href="#portfolio" class="btn-secondary">View Work</a>
+      </div>
+      <div class="sci" data-animate="fade-up" data-delay="500">
+        <a href="https://github.com/528664-007" target="_blank" aria-label="GitHub"><i class='bx bxl-github'></i></a>
+        <a href="https://www.linkedin.com/in/sameer-yaseen-a-s-7aa162325" target="_blank" aria-label="LinkedIn"><i class='bx bxl-linkedin'></i></a>
+        <a href="https://www.instagram.com/sameer_00_007/" target="_blank" aria-label="Instagram"><i class='bx bxl-instagram'></i></a>
+        <a href="https://x.com/Sameer_00_007" target="_blank" aria-label="X / Twitter">
+          <svg width="18" height="18" viewBox="0 0 1200 1227" fill="currentColor"><path d="M714.3 519.3L1160 0H1054L668.5 450.6L364.1 0H0L467.7 687.4L0 1227H106L514.2 745.3L835.9 1227H1200L714.3 519.3Z"/></svg>
+        </a>
+      </div>
     </div>
-    <div class="home-img">
-      <div class="img-box">
-        <div class="img-item">
-          <img src="./images/1000066968.png" alt="Sameer Yaseen"> <!-- Changed to relative path; upload the image to your project folder -->
+
+    <div class="home-visual" data-animate="fade-left" data-delay="200">
+      <div class="solar-system">
+        <!-- Nebula glow layers -->
+        <div class="nebula nebula-1"></div>
+        <div class="nebula nebula-2"></div>
+        <div class="nebula nebula-3"></div>
+
+        <!-- Sun core (profile) -->
+        <div class="sun-core">
+          <div class="sun-corona corona-1"></div>
+          <div class="sun-corona corona-2"></div>
+          <div class="sun-corona corona-3"></div>
+          <div class="sun-corona corona-4"></div>
+          <div class="sun-flare flare-1"></div>
+          <div class="sun-flare flare-2"></div>
+          <div class="sun-flare flare-3"></div>
+          <div class="sun-flare flare-4"></div>
+          <div class="sun-flare flare-5"></div>
+          <div class="sun-flare flare-6"></div>
+          <div class="sun-flare flare-7"></div>
+          <div class="sun-flare flare-8"></div>
+          <div class="img-frame">
+            <img src="./images/1000066968.png" alt="Sameer Yaseen" onerror="this.style.display='none';this.parentElement.style.background='radial-gradient(circle at 40% 30%,#2a1f6e,#0a0a2e)'">
+          </div>
+        </div>
+
+        <!-- Orbit 1 – Mercury -->
+        <div class="orbit-path orbit-path-1">
+          <div class="planet planet-mercury">
+            <div class="planet-glow"></div>
+          </div>
+        </div>
+
+        <!-- Orbit 2 – Venus -->
+        <div class="orbit-path orbit-path-2">
+          <div class="planet planet-venus">
+            <div class="planet-glow"></div>
+          </div>
+        </div>
+
+        <!-- Orbit 3 – Earth with moon -->
+        <div class="orbit-path orbit-path-3">
+          <div class="planet planet-earth">
+            <div class="planet-glow"></div>
+            <div class="moon-orbit">
+              <div class="moon"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Orbit 4 – Mars -->
+        <div class="orbit-path orbit-path-4">
+          <div class="planet planet-mars">
+            <div class="planet-glow"></div>
+          </div>
+        </div>
+
+        <!-- Orbit 5 – Saturn with rings -->
+        <div class="orbit-path orbit-path-5">
+          <div class="planet planet-saturn">
+            <div class="saturn-rings"></div>
+            <div class="planet-glow"></div>
+          </div>
+        </div>
+
+        <!-- Asteroids belt -->
+        <div class="asteroid-belt">
+          <div class="asteroid-particle a1"></div>
+          <div class="asteroid-particle a2"></div>
+          <div class="asteroid-particle a3"></div>
+          <div class="asteroid-particle a4"></div>
+          <div class="asteroid-particle a5"></div>
+          <div class="asteroid-particle a6"></div>
+          <div class="asteroid-particle a7"></div>
+          <div class="asteroid-particle a8"></div>
+          <div class="asteroid-particle a9"></div>
+          <div class="asteroid-particle a10"></div>
+          <div class="asteroid-particle a11"></div>
+          <div class="asteroid-particle a12"></div>
+        </div>
+
+        <!-- Shooting stars -->
+        <div class="shooting-star ss1"></div>
+        <div class="shooting-star ss2"></div>
+        <div class="shooting-star ss3"></div>
+        <div class="shooting-star ss4"></div>
+      </div>
+
+      <!-- Floating stats -->
+      <div class="float-card card-top" data-animate="fade-up" data-delay="600">
+        <div class="float-num">8.71</div>
+        <div class="float-label">CGPA</div>
+      </div>
+      <div class="float-card card-bottom" data-animate="fade-up" data-delay="700">
+        <div class="float-num">12+</div>
+        <div class="float-label">Projects</div>
+      </div>
+    </div>
+
+    <div class="scroll-indicator">
+      <div class="scroll-line"></div>
+      <span>Scroll</span>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about" class="section">
+    <div class="section-header" data-animate="fade-up">
+      <div class="section-tag">About</div>
+      <h2 class="section-title">Who I am</h2>
+    </div>
+
+    <p class="bio" data-animate="fade-up">
+      Dynamic <strong>Computer Science undergraduate</strong> at <strong>Rajalakshmi Institute of Technology</strong> (CGPA: 8.71), 
+      concurrently pursuing a <strong>B.S. in Data Science & Applications</strong> from <strong>IIT Madras</strong>.
+      Proficient in Python, Java, C++, SQL, TensorFlow, OpenCV, Flask, and Django, with hands-on expertise in 
+      computer vision, deep learning, graph-based influencer analysis, blockchain traceability, and medical imaging AI.
+    </p>
+
+    <!-- Experience -->
+    <div class="subsection" data-animate="fade-up">
+      <h3 class="subsection-title">Work Experience</h3>
+      <div class="timeline">
+        <div class="timeline-item highlight">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="tl-meta">
+              <span class="tl-date">Sep 2025 – Nov 2025</span>
+              <span class="tl-badge">AI/ML</span>
+            </div>
+            <h4>Student Intern – AI/ML Engineer & Data Analyst</h4>
+            <p class="tl-company">CSIR-CEERI, Chennai</p>
+            <p class="tl-desc">Worked under Scientists in the Intelligent Systems division on a real-time <strong>Drowsiness Detection System</strong> using computer vision and deep learning.</p>
+            <ul class="tl-bullets">
+              <li>CNN + LSTM model using MediaPipe Face Mesh & Eye Aspect Ratio (EAR) with OpenCV</li>
+              <li>Achieved <strong>96% accuracy</strong> on real-world driving datasets</li>
+              <li>Deployed prototype on Raspberry Pi 4 for edge inference</li>
+            </ul>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="tl-meta">
+              <span class="tl-date">Aug 2025 – Sep 2025</span>
+              <span class="tl-badge upcoming">Offered</span>
+            </div>
+            <h4>Data Analytics Intern</h4>
+            <p class="tl-company">Deloitte USI</p>
+            <p class="tl-desc">Selected for Deloitte's competitive Data Analytics Internship program. Python, SQL, Power BI, and Tableau for Fortune 500 client insights.</p>
+          </div>
         </div>
       </div>
     </div>
-  </section>
-  <!-- About -->
-  <section id="about">
-    <h2 class="section-title">About Me</h2>
-    <p class="section-content bio-paragraph">
-      Dynamic <strong>Computer Science undergraduate</strong> at <strong>Rajalakshmi Institute of Technology</strong> (CGPA: 8.71), 
-      concurrently pursuing a prestigious <strong>B.S. in Data Science & Applications</strong> from <strong>IIT Madras</strong>.
-    <br><br>
-    Proficient in <strong>Python, Java, C++, SQL, TensorFlow, OpenCV, Flask, and Django</strong>, with hands-on expertise in 
-    <strong>computer vision, deep learning, real-time object detection, graph-based influencer analysis, blockchain traceability, 
-      and medical imaging AI</strong>.
-      <br><br>
-      Strong foundation in <strong>Data Structures, Algorithms, System Design, and RESTful API development</strong>. 
-      Proven ability to deliver production-ready solutions through agile workflows and cross-functional collaboration.
-      <br><br>
-    </p>
 
-<div class="about-subsection">
-  <!-- INTERNSHIPS -->
-  <h3>Work Experience & Internships</h3>
-
-  <!-- CSIR-CEERI Internship -->
-  <div class="experience-item highlight">
-    <div class="exp-header">
-      <h4>Student Intern – AI/ML Engineer & Data Analyst</h4>
-      <span class="exp-company">CSIR-Central Electronics Engineering Research Institute (CEERI), Chennai</span>
-      <span class="exp-date">September 2025 – November 2025</span>
+    <!-- Education -->
+    <div class="subsection" data-animate="fade-up">
+      <h3 class="subsection-title">Education</h3>
+      <div class="edu-grid">
+        <div class="edu-card highlight">
+          <div class="edu-icon">🎓</div>
+          <div>
+            <h4>B.Tech – Computer Science & Engineering</h4>
+            <p class="edu-inst">Rajalakshmi Institute of Technology, Chennai</p>
+            <p class="edu-year">2023 – 2027</p>
+            <p class="edu-grade">CGPA: <strong>8.71 / 10</strong></p>
+          </div>
+        </div>
+        <div class="edu-card">
+          <div class="edu-icon">📊</div>
+          <div>
+            <h4>BS – Data Science & Applications</h4>
+            <p class="edu-inst">IIT Madras (Online)</p>
+            <p class="edu-year">2024 – 2028</p>
+            <p class="edu-grade">CGPA: 6.57 / 10</p>
+          </div>
+        </div>
+        <div class="edu-card">
+          <div class="edu-icon">📚</div>
+          <div>
+            <h4>Higher Secondary (XII) – CBSE</h4>
+            <p class="edu-inst">Kendriya Vidyalaya Gill Nagar, Chennai</p>
+            <p class="edu-year">2023</p>
+            <p class="edu-grade"><strong>82.8%</strong></p>
+          </div>
+        </div>
+        <div class="edu-card">
+          <div class="edu-icon">📖</div>
+          <div>
+            <h4>Secondary (X) – CBSE</h4>
+            <p class="edu-inst">Kendriya Vidyalaya Gill Nagar, Chennai</p>
+            <p class="edu-year">2021</p>
+            <p class="edu-grade"><strong>88.6%</strong></p>
+          </div>
+        </div>
+      </div>
     </div>
-    <p class="exp-desc">
-      Worked under Scientists in the Intelligent Systems division on a real-time <strong>Drowsiness Detection System</strong> for driver safety using computer vision and deep learning.
-    </p>
-    <ul class="exp-highlights">
-      <li>Built CNN + LSTM model using MediaPipe Face Mesh and Eye Aspect Ratio (EAR) with OpenCV</li>
-      <li>Achieved <strong>96% accuracy</strong> on real-world driving datasets</li>
-      <li>Deployed prototype on Raspberry Pi 4 for edge inference</li>
-      <li>Presented results to senior scientists and contributed to technical report</li>
-    </ul>
-  </div>
-
-  <!-- Deloitte Internship (Offered / Upcoming) -->
-  <div class="experience-item">
-    <div class="exp-header">
-      <h4>Data Analytics Intern</h4>
-      <span class="exp-company">Deloitte USI (U.S. India offices)</span>
-      <span class="exp-date">August 2025 – September 2025 <em>(Offered)</em></span>
-    </div>
-    <p class="exp-desc">
-      Selected for Deloitte’s competitive Data Analytics Internship program. Will work on client-facing projects involving end-to-end analytics solutions.
-    </p>
-    <ul class="exp-highlights">
-      <li>Hands-on experience with Python, SQL, Power BI, and Tableau</li>
-      <li>Focus on predictive modeling, dashboard automation, and business intelligence</li>
-      <li>Collaborate with cross-functional teams to deliver insights for Fortune 500 clients</li>
-    </ul>
-  </div>
-
-  <!-- EDUCATION -->
-  <h3 style="margin-top: 50px;">Education</h3>
-
-  <div class="education-item highlight">
-    <h4>B.Tech in Computer Science & Engineering</h4>
-    <p class="edu-institute">Rajalakshmi Institute of Technology, Chennai <span class="edu-year">2023 – 2027</span></p>
-    <p class="edu-grade"><strong>CGPA: 8.71 / 10</strong> (Up to 4th Semester)</p>
-  </div>
-
-  <div class="education-item">
-    <h4>BS in Data Science & Applications</h4>
-    <p class="edu-institute">Indian Institute of Technology Madras (Online Degree) <span class="edu-year">2024 – 2028</span></p>
-    <p class="edu-grade">CGPA: 6.57 / 10 <em>(Foundation & Term 1–3 Completed)</em></p>
-  </div>
-
-  <div class="education-item">
-    <h4>Higher Secondary (XII) – CBSE</h4>
-    <p class="edu-institute">Kendriya Vidyalaya Gill Nagar, Chennai <span class="edu-year">2023</span></p>
-    <p class="edu-grade"><strong>82.8%</strong> (Physics, Chemistry, Mathematics, Computer Science)</p>
-  </div>
-
-  <div class="education-item">
-    <h4>Secondary (X) – CBSE</h4>
-    <p class="edu-institute">Kendriya Vidyalaya Gill Nagar, Chennai <span class="edu-year">2021</span></p>
-    <p class="edu-grade"><strong>88.6%</strong></p>
-  </div>
-</div>
 
     <!-- Skills -->
-    <div class="about-subsection">
-      <h3>💡 Skills</h3>
-      <ul class="skills-list">
-        <li>🔑 <strong>Languages:</strong> Python, Java, C++, C, SQL</li>
-        <li>🔑 <strong>Web Tech:</strong> HTML, CSS, JavaScript, REST APIs, MongoDB, MySQL</li>
-        <li>🔑 <strong>Frameworks:</strong> Flask, Django, TensorFlow, OpenCV, Pandas, Matplotlib</li>
-        <li>🔑 <strong>Tools:</strong> Git, GitHub, Postman, JIRA, Eclipse, VS Code</li>
-        <li>🔑 <strong>Version Control:</strong> Git, GitHub</li>
-        <li>🔑 <strong>Cloud:</strong> AWS (Basic), Azure (Basic)</li>
-        <li>🔑 <strong>Concepts:</strong> Data Structures, OOP, SDLC, Version Control</li>
-      </ul>
+    <div class="subsection" data-animate="fade-up">
+      <h3 class="subsection-title">Skills</h3>
+      <div class="skills-grid">
+        <div class="skill-group">
+          <div class="skill-label">Languages</div>
+          <div class="skill-tags">
+            <span class="tag">Python</span><span class="tag">Java</span><span class="tag">C++</span><span class="tag">C</span><span class="tag">SQL</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <div class="skill-label">Frameworks</div>
+          <div class="skill-tags">
+            <span class="tag">Flask</span><span class="tag">Django</span><span class="tag">TensorFlow</span><span class="tag">OpenCV</span><span class="tag">Pandas</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <div class="skill-label">Web & DB</div>
+          <div class="skill-tags">
+            <span class="tag">HTML/CSS</span><span class="tag">JavaScript</span><span class="tag">REST APIs</span><span class="tag">MongoDB</span><span class="tag">MySQL</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <div class="skill-label">Tools & Cloud</div>
+          <div class="skill-tags">
+            <span class="tag">Git</span><span class="tag">GitHub</span><span class="tag">Postman</span><span class="tag">AWS</span><span class="tag">Azure</span>
+          </div>
+        </div>
+      </div>
     </div>
 
     <!-- Certifications -->
-    <div class="about-subsection">
-      <h3>📜 Certifications</h3>
-      <ul>
-        <li>⭐ Pandas, Deep Learning, AI Ethics, Machine Learning (2024) – Kaggle</li>
-        <li>⭐ Data Structures & Algorithms (2024) – Great Learning</li>
-        <li>⭐ Data Science (2025) – Udemy, Kaggle</li>
-        <li>⭐ Python, C, C++, Java (with OOPS) (2024) – Great Learning</li>
-        <li>⭐ SQL (with DBMS), MongoDB (2024) – MongoDB</li>
-        <li>⭐ Machine Learning with Neural Networks (2024) – Kaggle</li>
-        <li>⭐ Linux Basics (2025) – Udemy</li>
-        <li>⭐ Agile / Scrum Methodology (2025) – Kaggle</li>
-        <li>⭐ Data Visualization (Matplotlib, Seaborn) (2025) – Great Learning</li>
-        <li>⭐ Skillathon in MongoDB (2025) – MongoDB</li>
-      </ul>
+    <div class="subsection" data-animate="fade-up">
+      <h3 class="subsection-title">Certifications</h3>
+      <div class="cert-list">
+        <div class="cert-item"><span class="cert-dot"></span>Pandas, Deep Learning, AI Ethics, ML (2024) – Kaggle</div>
+        <div class="cert-item"><span class="cert-dot"></span>Data Structures & Algorithms (2024) – Great Learning</div>
+        <div class="cert-item"><span class="cert-dot"></span>Data Science (2025) – Udemy, Kaggle</div>
+        <div class="cert-item"><span class="cert-dot"></span>Python, C, C++, Java with OOP (2024) – Great Learning</div>
+        <div class="cert-item"><span class="cert-dot"></span>SQL with DBMS, MongoDB (2024) – MongoDB</div>
+        <div class="cert-item"><span class="cert-dot"></span>Machine Learning with Neural Networks (2024) – Kaggle</div>
+        <div class="cert-item"><span class="cert-dot"></span>Linux Basics (2025) – Udemy</div>
+        <div class="cert-item"><span class="cert-dot"></span>Agile / Scrum Methodology (2025) – Kaggle</div>
+        <div class="cert-item"><span class="cert-dot"></span>Data Visualization (Matplotlib, Seaborn) (2025) – Great Learning</div>
+        <div class="cert-item"><span class="cert-dot"></span>Skillathon in MongoDB (2025) – MongoDB</div>
+      </div>
     </div>
 
     <!-- Extras -->
-    <div class="about-subsection">
-      <h3>✨ Extras</h3>
-      <ul>
-        <li>👉 Member of Coding Club & Hackathon Enthusiast</li>
-        <li>👉 Multiple participation in SIH</li>
-        <li>👉 Strong interest in Artificial Intelligence and Data Science with problem-solving and logical thinking</li>
-        <li>👉 District Level Badminton Player</li>
-        <li>👉 Handling multiple projects</li>
-        <li>👉 Videography and editing skills</li>
-      </ul>
+    <div class="subsection" data-animate="fade-up">
+      <h3 class="subsection-title">Extras</h3>
+      <div class="extras-grid">
+        <div class="extra-item">🏸 District Level Badminton Player</div>
+        <div class="extra-item">💻 Coding Club Member & Hackathon Enthusiast</div>
+        <div class="extra-item">🚀 Multiple SIH Participations</div>
+        <div class="extra-item">🎥 Videography & Editing Skills</div>
+        <div class="extra-item">🧠 AI & Data Science Enthusiast</div>
+        <div class="extra-item">🔧 Managing Multiple Projects</div>
+      </div>
     </div>
   </section>
 
   <!-- Portfolio -->
-  <section id="portfolio">
-    <h2 class="section-title">My Projects</h2>
+  <section id="portfolio" class="section">
+    <div class="section-header" data-animate="fade-up">
+      <div class="section-tag">Projects</div>
+      <h2 class="section-title">What I've built</h2>
+    </div>
+
     <div class="portfolio-grid">
-      <!-- Box 1 -->
-      <div class="portfolio-item">
-        <div class="portfolio-img">
+      <div class="portfolio-item" data-animate="fade-up" data-delay="0">
+        <div class="p-img-wrap">
           <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRL-kazC2b68IRl8Oz-NGhWDwjSYHyoYUyssQ&s" alt="E-commerce Recommender">
+          <div class="p-overlay">
+            <button class="p-view-btn" onclick="openModal('modal1')">View Project ↗</button>
+          </div>
         </div>
-        <div class="portfolio-content">
-          <h3>🛒 E-commerce Recommender</h3>
-          <p>AI-powered product recommendation system that improves customer experience using ML.</p>
-          <button class="btn-view" onclick="openModal('modal1')">View Project</button>
+        <div class="p-info">
+          <div class="p-tags"><span>Python</span><span>TensorFlow</span><span>Flask</span></div>
+          <h3>E-commerce Recommender</h3>
+          <p>AI-powered hybrid recommendation engine combining collaborative & content-based filtering.</p>
         </div>
       </div>
 
-      <!-- Box 2 -->
-      <div class="portfolio-item">
-        <div class="portfolio-img">
+      <div class="portfolio-item" data-animate="fade-up" data-delay="50">
+        <div class="p-img-wrap">
           <img src="https://appinventiv.com/wp-content/uploads/2023/05/How-can-blockchain-be-used-to-strengthen-the-medical-supply-chain-05.webp" alt="Blockchain Product Tracker">
+          <div class="p-overlay">
+            <button class="p-view-btn" onclick="openModal('modal2')">View Project ↗</button>
+          </div>
         </div>
-        <div class="portfolio-content">
-          <h3>🔐 Blockchain Product Tracker</h3>
+        <div class="p-info">
+          <div class="p-tags"><span>Solidity</span><span>React</span><span>Ethereum</span></div>
+          <h3>Blockchain Product Tracker</h3>
           <p>Decentralized blockchain system for secure product tracking and anti-counterfeiting.</p>
-          <button class="btn-view" onclick="openModal('modal2')">View Project</button>
         </div>
       </div>
 
-      <!-- Box 3 -->
-      <div class="portfolio-item">
-        <div class="portfolio-img">
+      <div class="portfolio-item" data-animate="fade-up" data-delay="100">
+        <div class="p-img-wrap">
           <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRr4d6WhPuOg-JHepH6zwCbJ1pYFohwcvyReg&s" alt="Debate Event Organizer">
+          <div class="p-overlay">
+            <button class="p-view-btn" onclick="openModal('modal3')">View Project ↗</button>
+          </div>
         </div>
-        <div class="portfolio-content">
-          <h3>🎤 Debate Event Organizer</h3>
-          <p>Web app for managing debate competitions with scheduling, scoring, and live tracking.</p>
-          <button class="btn-view" onclick="openModal('modal3')">View Project</button>
+        <div class="p-info">
+          <div class="p-tags"><span>Node.js</span><span>Socket.io</span><span>MongoDB</span></div>
+          <h3>Debate Event Organizer</h3>
+          <p>Full tournament management with live scoring and real-time leaderboards.</p>
         </div>
       </div>
 
-      <!-- Box 4 -->
-      <div class="portfolio-item">
-        <div class="portfolio-img">
-          <img src="https://www.amarinfotech.com/featureimages/Firebase-Authentication-and-Real-time-Database-Integration-in-Android.jpg" alt="Firebase Auth Integration">
+      <div class="portfolio-item" data-animate="fade-up" data-delay="150">
+        <div class="p-img-wrap">
+          <img src="https://www.amarinfotech.com/featureimages/Firebase-Authentication-and-Real-time-Database-Integration-in-Android.jpg" alt="Firebase Auth">
+          <div class="p-overlay">
+            <button class="p-view-btn" onclick="openModal('modal4')">View Project ↗</button>
+          </div>
         </div>
-        <div class="portfolio-content">
-          <h3>🔑 Firebase Auth Integration</h3>
+        <div class="p-info">
+          <div class="p-tags"><span>Firebase</span><span>Firestore</span><span>Auth</span></div>
+          <h3>Firebase Auth Integration</h3>
           <p>Secure login system with Firebase Authentication supporting Google & Email sign-in.</p>
-          <button class="btn-view" onclick="openModal('modal4')">View Project</button>
         </div>
       </div>
 
-      <!-- Box 5 -->
-      <div class="portfolio-item">
-        <div class="portfolio-img">
-          <img src="https://www.cyberswift.com/blog/wp-content/uploads/2023/07/AI-Based-Pothole-Detection.jpg" alt="AI Road Damage Reporter">
+      <div class="portfolio-item" data-animate="fade-up" data-delay="0">
+        <div class="p-img-wrap">
+          <img src="https://www.cyberswift.com/blog/wp-content/uploads/2023/07/AI-Based-Pothole-Detection.jpg" alt="AI Road Damage">
+          <div class="p-overlay">
+            <button class="p-view-btn" onclick="openModal('modal5')">View Project ↗</button>
+          </div>
         </div>
-        <div class="portfolio-content">
-          <h3>🛣️ AI Road Damage Reporter</h3>
-          <p>Deep learning system that detects and classifies road damage from images.</p>
-          <button class="btn-view" onclick="openModal('modal5')">View Project</button>
+        <div class="p-info">
+          <div class="p-tags"><span>MobileNetV2</span><span>TFLite</span><span>GPS</span></div>
+          <h3>AI Road Damage Reporter</h3>
+          <p>Deep learning system that detects and classifies road damage from images with 92% mAP.</p>
         </div>
       </div>
 
-      <!-- Box 6 -->
-      <div class="portfolio-item">
-        <div class="portfolio-img">
+      <div class="portfolio-item" data-animate="fade-up" data-delay="50">
+        <div class="p-img-wrap">
           <img src="https://pub.mdpi-res.com/cancers/cancers-14-05569/article_deploy/html/images/cancers-14-05569-g001.png?1710469853" alt="Lung Cancer Detection">
+          <div class="p-overlay">
+            <button class="p-view-btn" onclick="openModal('modal6')">View Project ↗</button>
+          </div>
         </div>
-        <div class="portfolio-content">
-          <h3>🧬 Lung Cancer Detection</h3>
-          <p>CNN-based medical image classifier for early detection of lung cancer.</p>
-          <button class="btn-view" onclick="openModal('modal6')">View Project</button>
-        </div>
-      </div>
-      <!-- Box 7 -->
-      <div class="portfolio-item">
-        <div class="portfolio-img">
-          <img src="https://visiblenetworklabs.com/wp-content/uploads/2024/01/What-is-SNA-Map.png" alt="Influencer Detection System">
-        </div>
-        <div class="portfolio-content">
-          <h3>📊 Influencer Detection System</h3>
-          <p>Graph theory-based system to detect influencers in social networks.</p>
-          <button class="btn-view" onclick="openModal('modal7')">View Project</button>
+        <div class="p-info">
+          <div class="p-tags"><span>ResNet50</span><span>Grad-CAM</span><span>Streamlit</span></div>
+          <h3>Lung Cancer Detection</h3>
+          <p>CNN-based medical image classifier for early detection of lung cancer. 95%+ accuracy.</p>
         </div>
       </div>
 
-      <!-- Box 8 -->
-      <div class="portfolio-item">
-        <div class="portfolio-img">
-          <img src="https://viso.ai/wp-content/uploads/2022/07/office-cv-detection-real-time-computer-vision-1060x708.jpg" alt="Real-time Computer Vision System">
+      <div class="portfolio-item" data-animate="fade-up" data-delay="100">
+        <div class="p-img-wrap">
+          <img src="https://visiblenetworklabs.com/wp-content/uploads/2024/01/What-is-SNA-Map.png" alt="Influencer Detection">
+          <div class="p-overlay">
+            <button class="p-view-btn" onclick="openModal('modal7')">View Project ↗</button>
+          </div>
         </div>
-        <div class="portfolio-content">
-          <h3>👁️ Real-Time Object Detection (Webcam)</h3>
-          <p>Real-time object detection system using OpenCV and Flask.</p>
-          <button class="btn-view" onclick="openModal('modal8')">View Project</button>
-        </div>
-      </div>
-
-      <!-- Box 9 -->
-      <div class="portfolio-item">
-        <div class="portfolio-img">
-          <img src="https://algassert.com/assets/2016-05-22-quirk/usage-quirk.gif" alt="Stock Price Prediction">
-        </div>
-        <div class="portfolio-content">
-          <h3>Quantum Circuit Simulator with Visualization</h3>
-          <p>Machine learning model for quantum circuit simulation.</p>
-          <button class="btn-view" onclick="openModal('modal9')">View Project</button>
+        <div class="p-info">
+          <div class="p-tags"><span>NetworkX</span><span>PageRank</span><span>Plotly</span></div>
+          <h3>Influencer Detection System</h3>
+          <p>Graph theory-based system to detect key influencers in social networks.</p>
         </div>
       </div>
 
-      <!-- Box 10 -->
-      <div class="portfolio-item">
-        <div class="portfolio-img">
-          <img src="https://blog.happyfox.com/wp-content/uploads/2020/10/How-AI-Chatbots-are-Transforming-Customer-Service.png" alt="AI Chatbot">
+      <div class="portfolio-item" data-animate="fade-up" data-delay="150">
+        <div class="p-img-wrap">
+          <img src="https://viso.ai/wp-content/uploads/2022/07/office-cv-detection-real-time-computer-vision-1060x708.jpg" alt="Real-time Object Detection">
+          <div class="p-overlay">
+            <button class="p-view-btn" onclick="openModal('modal8')">View Project ↗</button>
+          </div>
         </div>
-        <div class="portfolio-content">
-          <h3>Early Disease Diagnosis Using ML Classification</h3>
-          <p>Intelligent system for Early diagnosis service service using natural language processing.</p>
-          <button class="btn-view" onclick="openModal('modal10')">View Project</button>
-        </div>
-      </div>
-
-      <!-- Box 11 -->
-      <div class="portfolio-item">
-        <div class="portfolio-img">
-          <img src="https://thumbs.dreamstime.com/b/understanding-artificial-neural-networks-visualizing-complex-interconnections-simulated-nerve-cells-captivating-image-371858561.jpg" alt="Weather Forecasting App">
-        </div>
-        <div class="portfolio-content">
-          <h3>Neuromorphic-Computing-Simulator-Simulate-spiking-neural-networks-SNNs</h3>
-          <p>Web application that provides SNN feauture plots using external APIs.</p>
-          <button class="btn-view" onclick="openModal('modal11')">View Project</button>
+        <div class="p-info">
+          <div class="p-tags"><span>YOLOv8</span><span>OpenCV</span><span>Flask</span></div>
+          <h3>Real-Time Object Detection</h3>
+          <p>YOLOv8-powered live object detection streaming in browser at 60+ FPS.</p>
         </div>
       </div>
 
-      <!-- Box 12 -->
-      <div class="portfolio-item">
-        <div class="portfolio-img">
-          <img src="https://itchronicles.com/wp-content/uploads/2023/07/face-recognition.jpg" alt="Face Recognition System">
+      <div class="portfolio-item" data-animate="fade-up" data-delay="0">
+        <div class="p-img-wrap">
+          <img src="https://algassert.com/assets/2016-05-22-quirk/usage-quirk.gif" alt="Quantum Circuit Simulator">
+          <div class="p-overlay">
+            <button class="p-view-btn" onclick="openModal('modal9')">View Project ↗</button>
+          </div>
         </div>
-        <div class="portfolio-content">
-          <h3>😀 Face Recognition System</h3>
-          <p>AI system for face recognition and verification using OpenCV.</p>
-          <button class="btn-view" onclick="openModal('modal12')">View Project</button>
+        <div class="p-info">
+          <div class="p-tags"><span>Python</span><span>NumPy</span><span>Qiskit</span></div>
+          <h3>Quantum Circuit Simulator</h3>
+          <p>Full-featured simulator with H, X, Y, Z, CNOT, CCX gates and visual output.</p>
+        </div>
+      </div>
+
+      <div class="portfolio-item" data-animate="fade-up" data-delay="50">
+        <div class="p-img-wrap">
+          <img src="https://blog.happyfox.com/wp-content/uploads/2020/10/How-AI-Chatbots-are-Transforming-Customer-Service.png" alt="Early Disease Diagnosis">
+          <div class="p-overlay">
+            <button class="p-view-btn" onclick="openModal('modal10')">View Project ↗</button>
+          </div>
+        </div>
+        <div class="p-info">
+          <div class="p-tags"><span>XGBoost</span><span>SHAP</span><span>Sklearn</span></div>
+          <h3>Early Disease Diagnosis</h3>
+          <p>Multi-disease prediction using ML classification with 99% accuracy on UCI datasets.</p>
+        </div>
+      </div>
+
+      <div class="portfolio-item" data-animate="fade-up" data-delay="100">
+        <div class="p-img-wrap">
+          <img src="https://thumbs.dreamstime.com/b/understanding-artificial-neural-networks-visualizing-complex-interconnections-simulated-nerve-cells-captivating-image-371858561.jpg" alt="SNN Simulator">
+          <div class="p-overlay">
+            <button class="p-view-btn" onclick="openModal('modal11')">View Project ↗</button>
+          </div>
+        </div>
+        <div class="p-info">
+          <div class="p-tags"><span>Python</span><span>STDP</span><span>LIF</span></div>
+          <h3>Neuromorphic SNN Simulator</h3>
+          <p>Biologically realistic Spiking Neural Network simulator with event-driven simulation.</p>
+        </div>
+      </div>
+
+      <div class="portfolio-item" data-animate="fade-up" data-delay="150">
+        <div class="p-img-wrap">
+          <img src="https://itchronicles.com/wp-content/uploads/2023/07/face-recognition.jpg" alt="Face Recognition">
+          <div class="p-overlay">
+            <button class="p-view-btn" onclick="openModal('modal12')">View Project ↗</button>
+          </div>
+        </div>
+        <div class="p-info">
+          <div class="p-tags"><span>FaceNet</span><span>MTCNN</span><span>OpenCV</span></div>
+          <h3>Face Recognition System</h3>
+          <p>99.2% accurate real-time face recognition using deep embeddings and triplet loss.</p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Modals -->
-<!-- MODAL 1 -->
-<div id="modal1" class="modal">
-  <div class="modal-content">
-    <span class="close" onclick="closeModal('modal1')">&times;</span>
-    <h2>E-commerce Product Recommender System</h2>
-    <img src="https://private-user-images.githubusercontent.com/196590583/512633032-73a65c0d-a0ae-43e0-b433-7456e41fea37.png?jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NjM5NzkxMjQsIm5iZiI6MTc2Mzk3ODgyNCwicGF0aCI6Ii8xOTY1OTA1ODMvNTEyNjMzMDMyLTczYTY1YzBkLWEwYWUtNDNlMC1iNDMzLTc0NTZlNDFmZWEzNy5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjUxMTI0JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI1MTEyNFQxMDA3MDRaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT1kNjE2MzlhMGU4OGYxYjhlMDgwOGU1YjAzZmYzYmU0NjgyYjM5Y2VkYTdjMjg5YjNjYzgxNjhjYTFiNmFiNzY2JlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.PhJ-IujPrRW6xbnM8XCTwtq_iKRSHdk161dyPJ3-aAw" alt="E-commerce Recommender" class="modal-img">
-    <p>A hybrid recommendation engine combining collaborative & content-based filtering.</p>
-    <ul>
-      <li>Python, TensorFlow/Keras, Pandas, Scikit-learn</li>
-      <li>Flask API + responsive frontend</li>
-      <li>Real-time Top-N recommendations</li>
-    </ul>
-    <div class="github-btn-container">
-      <a href="https://github.com/528664-007/E-Commerce-Product-Application" target="_blank" class="github-btn">
-        View on GitHub
-      </a>
+  <div id="modal1" class="modal" role="dialog" aria-modal="true" aria-label="E-commerce Recommender project details">
+    <div class="modal-backdrop" onclick="closeModal('modal1')"></div>
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeModal('modal1')" aria-label="Close">&times;</button>
+      <img src="https://private-user-images.githubusercontent.com/196590583/512633032-73a65c0d-a0ae-43e0-b433-7456e41fea37.png?jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NjM5NzkxMjQsIm5iZiI6MTc2Mzk3ODgyNCwicGF0aCI6Ii8xOTY1OTA1ODMvNTEyNjMzMDMyLTczYTY1YzBkLWEwYWUtNDNlMC1iNDMzLTc0NTZlNDFmZWEzNy5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjUxMTI0JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI1MTEyNFQxMDA3MDRaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT1kNjE2MzlhMGU4OGYxYjhlMDgwOGU1YjAzZmYzYmU0NjgyYjM5Y2VkYTdjMjg5YjNjYzgxNjhjYTFiNmFiNzY2JlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.PhJ-IujPrRW6xbnM8XCTwtq_iKRSHdk161dyPJ3-aAw" alt="E-commerce Recommender" class="modal-img" onerror="this.style.display='none'">
+      <div class="modal-body">
+        <h2>E-commerce Product Recommender</h2>
+        <p>A hybrid recommendation engine combining collaborative & content-based filtering for real-time top-N product recommendations.</p>
+        <div class="modal-tags"><span>Python</span><span>TensorFlow/Keras</span><span>Pandas</span><span>Scikit-learn</span><span>Flask</span></div>
+        <ul>
+          <li>Hybrid filtering (collaborative + content-based)</li>
+          <li>Flask REST API with responsive frontend</li>
+          <li>Real-time Top-N recommendation engine</li>
+        </ul>
+        <a href="https://github.com/528664-007/E-Commerce-Product-Application" target="_blank" class="modal-github-btn">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+          View on GitHub
+        </a>
+      </div>
     </div>
   </div>
-</div>
 
-<!-- MODAL 2 -->
-<div id="modal2" class="modal">
-  <div class="modal-content">
-    <span class="close" onclick="closeModal('modal2')">&times;</span>
-    <h2>Blockchain Product Authenticity Tracker</h2>
-    <img src="https://www.researchgate.net/publication/368568906/figure/fig2/AS:11431281120623016@1676567576463/Simplified-process-for-tracking-products-using-blockchain-adopted-from-Acungil-2019.ppm" alt="Blockchain Dashboard" class="modal-img">
-    <p>Track any product from factory to consumer using Ethereum smart contracts.</p>
-    <ul>
-      <li>Solidity + Hardhat</li>
-      <li>React + Ethers.js + MetaMask integration</li>
-      <li>QR-code based verification system</li>
-    </ul>
-    <div class="github-btn-container">
-      <a href="https://github.com/528664-007/Block-Chain-product-tracker/blob/main" target="_blank" class="github-btn">
-        View on GitHub
-      </a>
+  <div id="modal2" class="modal" role="dialog" aria-modal="true">
+    <div class="modal-backdrop" onclick="closeModal('modal2')"></div>
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeModal('modal2')" aria-label="Close">&times;</button>
+      <img src="https://www.researchgate.net/publication/368568906/figure/fig2/AS:11431281120623016@1676567576463/Simplified-process-for-tracking-products-using-blockchain-adopted-from-Acungil-2019.ppm" alt="Blockchain Dashboard" class="modal-img" onerror="this.style.display='none'">
+      <div class="modal-body">
+        <h2>Blockchain Product Authenticity Tracker</h2>
+        <p>Track any product from factory to consumer using Ethereum smart contracts and QR-code verification.</p>
+        <div class="modal-tags"><span>Solidity</span><span>Hardhat</span><span>React</span><span>Ethers.js</span><span>MetaMask</span></div>
+        <ul>
+          <li>Ethereum smart contracts with Solidity + Hardhat</li>
+          <li>React + Ethers.js + MetaMask integration</li>
+          <li>QR-code based verification system</li>
+        </ul>
+        <a href="https://github.com/528664-007/Block-Chain-product-tracker/blob/main" target="_blank" class="modal-github-btn">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+          View on GitHub
+        </a>
+      </div>
     </div>
   </div>
-</div>
 
-<!-- MODAL 3 -->
-<div id="modal3" class="modal">
-  <div class="modal-content">
-    <span class="close" onclick="closeModal('modal3')">&times;</span>
-    <h2>DebateFlow – Debate Tournament Organizer</h2>
-    <img src="https://images.unsplash.com/photo-1587825140708-dfaf72ae4b04?w=800&q=80" alt="Debate Dashboard" class="modal-img">
-    <p>Full tournament management with live scoring and real-time leaderboards.</p>
-    <ul>
-      <li>Node.js + Express + Socket.io</li>
-      <li>MongoDB + React + Drag-and-drop brackets</li>
-      <li>Real-time judge & audience updates</li>
-    </ul>
-    <div class="github-btn-container">
-      <a href="https://github.com/528664-007/Debate-Event-Organiser" target="_blank" class="github-btn">
-        View on GitHub
-      </a>
+  <div id="modal3" class="modal" role="dialog" aria-modal="true">
+    <div class="modal-backdrop" onclick="closeModal('modal3')"></div>
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeModal('modal3')" aria-label="Close">&times;</button>
+      <img src="https://images.unsplash.com/photo-1587825140708-dfaf72ae4b04?w=800&q=80" alt="Debate Dashboard" class="modal-img">
+      <div class="modal-body">
+        <h2>DebateFlow – Debate Tournament Organizer</h2>
+        <p>Full tournament management with live scoring, real-time leaderboards, and drag-and-drop brackets.</p>
+        <div class="modal-tags"><span>Node.js</span><span>Express</span><span>Socket.io</span><span>MongoDB</span><span>React</span></div>
+        <ul>
+          <li>Real-time judge & audience updates via Socket.io</li>
+          <li>Drag-and-drop tournament brackets</li>
+          <li>MongoDB backend + React frontend</li>
+        </ul>
+        <a href="https://github.com/528664-007/Debate-Event-Organiser" target="_blank" class="modal-github-btn">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+          View on GitHub
+        </a>
+      </div>
     </div>
   </div>
-</div>
 
-<!-- MODAL 4 -->
-<div id="modal4" class="modal">
-  <div class="modal-content">
-    <span class="close" onclick="closeModal('modal4')">&times;</span>
-    <h2>Firebase Authentication System</h2>
-    <img src="https://media.geeksforgeeks.org/wp-content/uploads/20250904190930392537/users.webp" alt="Firebase Login" class="modal-img">
-    <p>Secure multi-provider authentication with role-based access control.</p>
-    <ul>
-      <li>Google, Email/Password, Anonymous login</li>
-      <li>Firestore Security Rules + Custom Claims</li>
-      <li>Admin panel & protected routes</li>
-    </ul>
-    <div class="github-btn-container">
-      <a href="https://github.com/528664-007/Firebase-integration-Project" target="_blank" class="github-btn">
-        View on GitHub
-      </a>
+  <div id="modal4" class="modal" role="dialog" aria-modal="true">
+    <div class="modal-backdrop" onclick="closeModal('modal4')"></div>
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeModal('modal4')" aria-label="Close">&times;</button>
+      <img src="https://media.geeksforgeeks.org/wp-content/uploads/20250904190930392537/users.webp" alt="Firebase Login" class="modal-img" onerror="this.style.display='none'">
+      <div class="modal-body">
+        <h2>Firebase Authentication System</h2>
+        <p>Secure multi-provider authentication with role-based access control and admin panel.</p>
+        <div class="modal-tags"><span>Firebase</span><span>Firestore</span><span>Google Auth</span><span>Custom Claims</span></div>
+        <ul>
+          <li>Google, Email/Password, Anonymous login</li>
+          <li>Firestore Security Rules + Custom Claims</li>
+          <li>Admin panel & protected routes</li>
+        </ul>
+        <a href="https://github.com/528664-007/Firebase-integration-Project" target="_blank" class="modal-github-btn">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+          View on GitHub
+        </a>
+      </div>
     </div>
   </div>
-</div>
 
-<!-- MODAL 5 -->
-<div id="modal5" class="modal">
-  <div class="modal-content">
-    <span class="close" onclick="closeModal('modal5')">&times;</span>
-    <h2>AI Road Damage Detector</h2>
-    <img src="https://images.unsplash.com/photo-1594736797933-d0501ba2fe65?w=800&q=80" alt="Road Damage Detection" class="modal-img">
-    <p>Real-time pothole & crack detection with 92% mAP on RDD2020 dataset.</p>
-    <ul>
-      <li>MobileNetV2 transfer learning</li>
-      <li>TensorFlow Lite optimized</li>
-      <li>GPS-tagged reporting</li>
-    </ul>
-    <div class="github-btn-container">
-      <a href="https://github.com/yourusername/road-damage-detector" target="_blank" class="github-btn">
-        View on GitHub
-      </a>
+  <div id="modal5" class="modal" role="dialog" aria-modal="true">
+    <div class="modal-backdrop" onclick="closeModal('modal5')"></div>
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeModal('modal5')" aria-label="Close">&times;</button>
+      <img src="https://images.unsplash.com/photo-1594736797933-d0501ba2fe65?w=800&q=80" alt="Road Damage Detection" class="modal-img">
+      <div class="modal-body">
+        <h2>AI Road Damage Detector</h2>
+        <p>Real-time pothole & crack detection with 92% mAP on RDD2020 dataset, deployed with GPS tagging.</p>
+        <div class="modal-tags"><span>MobileNetV2</span><span>TensorFlow Lite</span><span>GPS</span></div>
+        <ul>
+          <li>MobileNetV2 transfer learning</li>
+          <li>TensorFlow Lite optimized for mobile</li>
+          <li>GPS-tagged reporting system</li>
+        </ul>
+        <a href="https://github.com/528664-007" target="_blank" class="modal-github-btn">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+          View on GitHub
+        </a>
+      </div>
     </div>
   </div>
-</div>
 
-<!-- MODAL 6 -->
-<div id="modal6" class="modal">
-  <div class="modal-content">
-    <span class="close" onclick="closeModal('modal6')">&times;</span>
-    <h2>Lung Cancer Detection (CT & X-ray)</h2>
-    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj0l3ooOm4Oj2dnJZaZWNCVRuOKdOHBDyayj8eTIK9a51szWp4ilANUit23aTeYEGaHqdSI1_5fL51JsdKey68n6dnkRnXevlkdY-nBbp1T1LA41x1AqcC63bNJVs4vLzYxpxFYhyQ3kC8/s1168/Lung+Nodule+Detection+Using+CNN+Python+Source+Code.jpg" alt="Lung Cancer Detection" class="modal-img">
-    <p>Deep CNN with Grad-CAM heatmaps for explainable medical diagnosis.</p>
-    <ul>
-      <li>ResNet50 + EfficientNet</li>
-      <li>Streamlit app with DICOM support</li>
-      <li>95%+ accuracy on public datasets</li>
-    </ul>
-    <div class="github-btn-container">
-      <a href="https://github.com/528664-007/Lung-Cancer-detection-using-CNN" target="_blank" class="github-btn">
-        View on GitHub
-      </a>
+  <div id="modal6" class="modal" role="dialog" aria-modal="true">
+    <div class="modal-backdrop" onclick="closeModal('modal6')"></div>
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeModal('modal6')" aria-label="Close">&times;</button>
+      <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj0l3ooOm4Oj2dnJZaZWNCVRuOKdOHBDyayj8eTIK9a51szWp4ilANUit23aTeYEGaHqdSI1_5fL51JsdKey68n6dnkRnXevlkdY-nBbp1T1LA41x1AqcC63bNJVs4vLzYxpxFYhyQ3kC8/s1168/Lung+Nodule+Detection+Using+CNN+Python+Source+Code.jpg" alt="Lung Cancer Detection" class="modal-img">
+      <div class="modal-body">
+        <h2>Lung Cancer Detection (CT & X-ray)</h2>
+        <p>Deep CNN with Grad-CAM heatmaps for explainable medical diagnosis with 95%+ accuracy.</p>
+        <div class="modal-tags"><span>ResNet50</span><span>EfficientNet</span><span>Streamlit</span><span>DICOM</span></div>
+        <ul>
+          <li>ResNet50 + EfficientNet ensemble</li>
+          <li>Grad-CAM heatmaps for explainability</li>
+          <li>Streamlit app with DICOM support</li>
+        </ul>
+        <a href="https://github.com/528664-007/Lung-Cancer-detection-using-CNN" target="_blank" class="modal-github-btn">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+          View on GitHub
+        </a>
+      </div>
     </div>
   </div>
-</div>
 
-<!-- MODAL 7 -->
-<div id="modal7" class="modal">
-  <div class="modal-content">
-    <span class="close" onclick="closeModal('modal7')">&times;</span>
-    <h2>Influencer Detection in Social Networks</h2>
-    <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=800&q=80" alt="Network Graph" class="modal-img">
-    <p>Graph-based influencer identification using centrality algorithms.</p>
-    <ul>
-      <li>NetworkX + Louvain community detection</li>
-      <li>Interactive Plotly/Dash visualizations</li>
-      <li>PageRank, Betweenness, Closeness metrics</li>
-    </ul>
-    <div class="github-btn-container">
-      <a href="https://github.com/yourusername/influencer-detection" target="_blank" class="github-btn">
-        View on GitHub
-      </a>
+  <div id="modal7" class="modal" role="dialog" aria-modal="true">
+    <div class="modal-backdrop" onclick="closeModal('modal7')"></div>
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeModal('modal7')" aria-label="Close">&times;</button>
+      <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=800&q=80" alt="Network Graph" class="modal-img">
+      <div class="modal-body">
+        <h2>Influencer Detection in Social Networks</h2>
+        <p>Graph-based influencer identification using centrality algorithms and community detection.</p>
+        <div class="modal-tags"><span>NetworkX</span><span>Louvain</span><span>Plotly/Dash</span><span>PageRank</span></div>
+        <ul>
+          <li>NetworkX + Louvain community detection</li>
+          <li>Interactive Plotly/Dash visualizations</li>
+          <li>PageRank, Betweenness, Closeness metrics</li>
+        </ul>
+        <a href="https://github.com/528664-007" target="_blank" class="modal-github-btn">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+          View on GitHub
+        </a>
+      </div>
     </div>
   </div>
-</div>
 
-<!-- MODAL 8 -->
-<div id="modal8" class="modal">
-  <div class="modal-content">
-    <span class="close" onclick="closeModal('modal8')">&times;</span>
-    <h2>Real-Time Object Detection (Webcam)</h2>
-    <img src="https://miro.medium.com/v2/resize:fit:1100/format:webp/0*OAuVCw-k7XZOekBa" alt="YOLO Detection" class="modal-img">
-    <p>YOLOv8-powered live object detection streaming in browser.</p>
-    <ul>
-      <li>Ultralytics YOLOv8 + OpenCV</li>
-      <li>Flask + WebSockets for real-time streaming</li>
-      <li>60+ FPS performance</li>
-    </ul>
-    <div class="github-btn-container">
-      <a href="https://github.com/528664-007/Real-time-object-detection" target="_blank" class="github-btn">
-        View on GitHub
-      </a>
+  <div id="modal8" class="modal" role="dialog" aria-modal="true">
+    <div class="modal-backdrop" onclick="closeModal('modal8')"></div>
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeModal('modal8')" aria-label="Close">&times;</button>
+      <img src="https://miro.medium.com/v2/resize:fit:1100/format:webp/0*OAuVCw-k7XZOekBa" alt="YOLO Detection" class="modal-img" onerror="this.style.display='none'">
+      <div class="modal-body">
+        <h2>Real-Time Object Detection (Webcam)</h2>
+        <p>YOLOv8-powered live object detection streaming in browser at 60+ FPS.</p>
+        <div class="modal-tags"><span>YOLOv8</span><span>OpenCV</span><span>Flask</span><span>WebSockets</span></div>
+        <ul>
+          <li>Ultralytics YOLOv8 + OpenCV</li>
+          <li>Flask + WebSockets for real-time streaming</li>
+          <li>60+ FPS performance on standard hardware</li>
+        </ul>
+        <a href="https://github.com/528664-007/Real-time-object-detection" target="_blank" class="modal-github-btn">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+          View on GitHub
+        </a>
+      </div>
     </div>
   </div>
-</div>
 
-<!-- MODAL 9 -->
-<div id="modal9" class="modal">
-  <div class="modal-content">
-    <span class="close" onclick="closeModal('modal9')">&times;</span>
-    <h2>Quantum Circuit Simulator with Visualization</h2>
-    <img src="https://thequantumlaend.de/wp-content/uploads/2023/02/designer_howto_bg.png" alt="Quantum Chart" class="modal-img">
-    <p>A full-featuredQuantum Circuit Simulator built from scratch using Python and NumPy.</p>
-    <ul>
-      <li>Implemented core quantum gates: <strong>H, X, Y, Z, CNOT, CCX</strong></li>
-      <li>Supports multi-qubit systems with accurate tensor product operations</li>
-      <li>Interactive drag-and-drop circuit builder with real-time simulation</li>
-    </ul>
-    <div class="github-btn-container">
-      <a href="https://github.com/528664-007/Quantum_Circuit_Simulator" target="_blank" class="github-btn">
-        View on GitHub
-      </a>
+  <div id="modal9" class="modal" role="dialog" aria-modal="true">
+    <div class="modal-backdrop" onclick="closeModal('modal9')"></div>
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeModal('modal9')" aria-label="Close">&times;</button>
+      <img src="https://thequantumlaend.de/wp-content/uploads/2023/02/designer_howto_bg.png" alt="Quantum Circuit" class="modal-img" onerror="this.style.display='none'">
+      <div class="modal-body">
+        <h2>Quantum Circuit Simulator with Visualization</h2>
+        <p>Full-featured quantum circuit simulator built from scratch using Python and NumPy.</p>
+        <div class="modal-tags"><span>Python</span><span>NumPy</span><span>Qiskit</span></div>
+        <ul>
+          <li>Quantum gates: H, X, Y, Z, CNOT, CCX</li>
+          <li>Multi-qubit systems with tensor product operations</li>
+          <li>Interactive drag-and-drop circuit builder</li>
+        </ul>
+        <a href="https://github.com/528664-007/Quantum_Circuit_Simulator" target="_blank" class="modal-github-btn">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+          View on GitHub
+        </a>
+      </div>
     </div>
   </div>
-</div>
 
-<!-- MODAL 10 -->
-<div id="modal10" class="modal">
-  <div class="modal-content">
-    <span class="close" onclick="closeModal('modal10')">&times;</span>
-    
-    <h2>Early Disease Diagnosis Using ML Classification</h2>
-    
-    <img src="https://images.unsplash.com/photo-1576092768241-dec231879fc3?w=800&q=80" 
-         alt="Medical Diagnosis Dashboard" class="modal-img">
-
-    <p>
-      A multi-disease early prediction system that analyzes patient symptoms and medical history to detect potential conditions.
-    </p>
-
-    <ul>
-      <li>Trained and compared 8+ classification algorithms including <strong>Random Forest, XGBoost, SVM, and Neural Networks</strong></li>
-      <li>Achieved up to <strong>99% accuracy</strong> on benchmark datasets (UCI ML Repository)</li>
-      <li>Feature importance analysis using SHAP values for explainable AI</li>
-    </ul>
-
-    <div class="github-btn-container">
-      <a href="https://github.com/528664-007/Early-Disease-Diagnosis-Using-Classification-Models" target="_blank" class="github-btn">
-        View on GitHub
-      </a>
+  <div id="modal10" class="modal" role="dialog" aria-modal="true">
+    <div class="modal-backdrop" onclick="closeModal('modal10')"></div>
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeModal('modal10')" aria-label="Close">&times;</button>
+      <img src="https://images.unsplash.com/photo-1576092768241-dec231879fc3?w=800&q=80" alt="Disease Diagnosis" class="modal-img">
+      <div class="modal-body">
+        <h2>Early Disease Diagnosis Using ML Classification</h2>
+        <p>Multi-disease early prediction system analyzing patient symptoms with 99% accuracy on UCI datasets.</p>
+        <div class="modal-tags"><span>XGBoost</span><span>Random Forest</span><span>SVM</span><span>SHAP</span></div>
+        <ul>
+          <li>8+ classification algorithms compared</li>
+          <li>99% accuracy on UCI ML Repository benchmarks</li>
+          <li>SHAP values for explainable AI</li>
+        </ul>
+        <a href="https://github.com/528664-007/Early-Disease-Diagnosis-Using-Classification-Models" target="_blank" class="modal-github-btn">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+          View on GitHub
+        </a>
+      </div>
     </div>
   </div>
-</div>
 
-<!-- MODAL 11 -->
-<div id="modal11" class="modal">
-  <div class="modal-content">
-    <span class="close" onclick="closeModal('modal11')">&times;</span>
-    
-    <h2>Neuromorphic Computing Simulator – Spiking Neural Networks (SNNs)</h2>
-    
-    <img src="https://images.stockcake.com/public/b/3/a/b3a1fb48-b4eb-494e-8a39-f221ef9f6c71_large/vibrant-neural-network-stockcake.jpg" 
-         alt="Spiking Neural Network Visualization" class="modal-img">
-
-    <p>
-      A high-performance Spiking Neural Network simulator built from scratch to model biologically realistic neurons.</p>
-
-    <ul>
-      <li>Implemented <strong>LIF neuron dynamics</strong> with (STDP)</li>
-      <li>Supports fully connected, convolutional, and recurrent SNN architectures</li>
-      <li>Event-driven simulation for extreme energy efficiency (mimics real brain behavior)</li>
-    </ul>
-
-    <div class="github-btn-container">
-      <a href="https://github.com/528664-007/Neuromorphic-Computing-Simulator-Simulate-spiking-neural-networks-SNNs-." 
-         target="_blank" class="github-btn">
-        View on GitHub
-      </a>
-    </div>
-  <!-- Fixed typo: was div="github-btn-container" -->
-  </div>
-</div>
-
-<!-- MODAL 12 -->
-<div id="modal12" class="modal">
-  <div class="modal-content">
-    <span class="close" onclick="closeModal('modal12')">&times;</span>
-    <h2>Advanced Face Recognition System</h2>
-    <img src="https://learn.g2.com/hs-fs/hubfs/Screenshot%202024-12-09%20at%207-35-40%E2%80%AFPM-png.png?width=600&height=445&name=Screenshot%202024-12-09%20at%207-35-40%E2%80%AFPM-png.png" alt="Face Recognition" class="modal-img">
-    <p>99.2% accurate real-time face recognition using deep embeddings.</p>
-    <ul>
-      <li>FaceNet + MTCNN + Triplet Loss</li>
-      <li>Real-time webcam processing</li>
-      <li>Attendance & verification ready</li>
-    </ul>
-    <div class="github-btn-container">
-      <a href="https://github.com/528664-007/Face-Recognition-System" target="_blank" class="github-btn">
-        View on GitHub
-      </a>
+  <div id="modal11" class="modal" role="dialog" aria-modal="true">
+    <div class="modal-backdrop" onclick="closeModal('modal11')"></div>
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeModal('modal11')" aria-label="Close">&times;</button>
+      <img src="https://images.stockcake.com/public/b/3/a/b3a1fb48-b4eb-494e-8a39-f221ef9f6c71_large/vibrant-neural-network-stockcake.jpg" alt="Spiking Neural Network" class="modal-img">
+      <div class="modal-body">
+        <h2>Neuromorphic Computing Simulator – SNNs</h2>
+        <p>High-performance Spiking Neural Network simulator modeling biologically realistic neurons.</p>
+        <div class="modal-tags"><span>Python</span><span>LIF Neurons</span><span>STDP</span><span>Event-driven</span></div>
+        <ul>
+          <li>LIF neuron dynamics with STDP learning</li>
+          <li>Fully connected, convolutional, recurrent SNN architectures</li>
+          <li>Event-driven simulation for energy efficiency</li>
+        </ul>
+        <a href="https://github.com/528664-007/Neuromorphic-Computing-Simulator-Simulate-spiking-neural-networks-SNNs-." target="_blank" class="modal-github-btn">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+          View on GitHub
+        </a>
+      </div>
     </div>
   </div>
-</div>
+
+  <div id="modal12" class="modal" role="dialog" aria-modal="true">
+    <div class="modal-backdrop" onclick="closeModal('modal12')"></div>
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeModal('modal12')" aria-label="Close">&times;</button>
+      <img src="https://learn.g2.com/hs-fs/hubfs/Screenshot%202024-12-09%20at%207-35-40%E2%80%AFPM-png.png?width=600&height=445&name=Screenshot%202024-12-09%20at%207-35-40%E2%80%AFPM-png.png" alt="Face Recognition" class="modal-img" onerror="this.style.display='none'">
+      <div class="modal-body">
+        <h2>Advanced Face Recognition System</h2>
+        <p>99.2% accurate real-time face recognition using deep embeddings and triplet loss training.</p>
+        <div class="modal-tags"><span>FaceNet</span><span>MTCNN</span><span>Triplet Loss</span><span>OpenCV</span></div>
+        <ul>
+          <li>FaceNet + MTCNN + Triplet Loss</li>
+          <li>Real-time webcam processing</li>
+          <li>Attendance & verification ready</li>
+        </ul>
+        <a href="https://github.com/528664-007/Face-Recognition-System" target="_blank" class="modal-github-btn">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+          View on GitHub
+        </a>
+      </div>
+    </div>
+  </div>
 
   <!-- Services -->
-  <section id="service">
-    <h2 class="section-title">Services</h2>
-    <ul class="section-content">
-      <li>Custom Web Development</li>
-      <li>AI/ML Model Deployment</li>
-      <li>API & Backend Engineering</li>
-      <li>Firebase and Realtime Apps</li>
-      <li>Data Analytics</li>
-      <li>Data Science</li>
-      <li>Program Building</li>
-    </ul>
+  <section id="service" class="section">
+    <div class="section-header" data-animate="fade-up">
+      <div class="section-tag">Services</div>
+      <h2 class="section-title">What I offer</h2>
+    </div>
+    <div class="services-grid" data-animate="fade-up">
+      <div class="service-card">
+        <div class="service-icon">⚡</div>
+        <h3>AI/ML Model Development</h3>
+        <p>End-to-end ML pipelines, model training, evaluation and deployment.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">👁</div>
+        <h3>Computer Vision Systems</h3>
+        <p>Real-time object detection, face recognition, and image classification.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">📊</div>
+        <h3>Data Analytics</h3>
+        <p>EDA, data visualisation, dashboards and business intelligence insights.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🌐</div>
+        <h3>Web & Backend Dev</h3>
+        <p>Flask/Django APIs, Firebase integrations, and full-stack applications.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🔗</div>
+        <h3>Blockchain Solutions</h3>
+        <p>Smart contracts, DApps, and Ethereum-based decentralised systems.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🧬</div>
+        <h3>Medical AI</h3>
+        <p>Medical imaging analysis, disease detection, and clinical ML solutions.</p>
+      </div>
+    </div>
   </section>
 
   <!-- Contact -->
-  <section id="contact">
-    <h2 class="section-title">Contact Me</h2>
-    <form id="contactForm" class="contact-form">
-      <input type="text" id="name" placeholder="Your Name" required>
-      <input type="email" id="email" placeholder="Your Email" required>
-      <textarea id="message" rows="5" placeholder="Your Message" required></textarea>
-      <button type="submit">Send Message</button>
-    </form>
-    <p id="responseMsg" style="color: green; margin-top: 10px;"></p>
+  <section id="contact" class="section">
+    <div class="section-header" data-animate="fade-up">
+      <div class="section-tag">Contact</div>
+      <h2 class="section-title">Let's connect</h2>
+    </div>
+    <div class="contact-wrapper" data-animate="fade-up">
+      <div class="contact-info">
+        <p>I'm always open to discussing new opportunities, collaborations, or just having a chat about AI and tech.</p>
+        <div class="contact-links">
+          <a href="mailto:sameerfayaz1028@gmail.com" class="contact-link">
+            <i class='bx bx-envelope'></i>
+            sameerfayaz1028@gmail.com
+          </a>
+          <a href="https://www.linkedin.com/in/sameer-yaseen-a-s-7aa162325" target="_blank" class="contact-link">
+            <i class='bx bxl-linkedin'></i>
+            linkedin.com/in/sameer-yaseen
+          </a>
+          <a href="https://github.com/528664-007" target="_blank" class="contact-link">
+            <i class='bx bxl-github'></i>
+            github.com/528664-007
+          </a>
+        </div>
+      </div>
+      <form id="contactForm" class="contact-form" novalidate>
+        <div class="form-group">
+          <input type="text" id="name" placeholder="Your Name" required autocomplete="name">
+        </div>
+        <div class="form-group">
+          <input type="email" id="email" placeholder="Your Email" required autocomplete="email">
+        </div>
+        <div class="form-group">
+          <textarea id="message" rows="5" placeholder="Your Message" required></textarea>
+        </div>
+        <button type="submit" class="submit-btn">
+          Send Message
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+        </button>
+        <p id="responseMsg" class="response-msg"></p>
+      </form>
+    </div>
   </section>
 
+  <!-- Footer -->
+  <footer class="footer">
+    <p>Built with passion by <strong>Sameer Yaseen</strong> · 2025</p>
+    <div class="footer-links">
+      <a href="https://github.com/528664-007" target="_blank">GitHub</a>
+      <a href="https://www.linkedin.com/in/sameer-yaseen-a-s-7aa162325" target="_blank">LinkedIn</a>
+      <a href="mailto:sameerfayaz1028@gmail.com">Email</a>
+    </div>
+  </footer>
+
   <!-- Scripts -->
-  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
   <script>
-    // EmailJS Initialization
-    (function() {
-      emailjs.init({
-        publicKey: "YEeFJ2YX85-wtEZJf" // Updated public key
-      });
-    })();
+    (function() { emailjs.init({ publicKey: "YEeFJ2YX85-wtEZJf" }); })();
+  </script>
+  <script>
+    /* ============================================
+   SAMEER YASEEN PORTFOLIO – SCRIPT.JS
+   Fixed, clean, production-ready
+   ============================================ */
 
-    // Particles.js
-    particlesJS('particles', {
-      particles: {
-        number: { value: 80, density: { enable: true, value_area: 800 } },
-        color: { value: '#ffffff' },
-        shape: { type: 'circle' },
-        opacity: { value: 0.5, random: true },
-        size: { value: 3, random: true },
-        line_linked: { enable: false },
-        move: { enable: true, speed: 1, direction: 'top', random: true, out_mode: 'out' }
-      },
-      interactivity: {
-        detect_on: 'canvas',
-        events: { onhover: { enable: false }, onclick: { enable: false } },
-        modes: { repulse: { distance: 100, duration: 0.4 } }
-      },
-      retina_detect: true
+/* ── LOADER CANVAS (stars on loader screen) ── */
+(function initLoaderCanvas() {
+  const lc  = document.getElementById('loaderCanvas');
+  if (!lc) return;
+  const lx  = lc.getContext('2d');
+  lc.width  = window.innerWidth;
+  lc.height = window.innerHeight;
+
+  const lStars = [];
+  const lAsteroids = [];
+  const count = Math.floor((lc.width * lc.height) / 4000);
+
+  for (let i = 0; i < count; i++) {
+    lStars.push({
+      x:     Math.random() * lc.width,
+      y:     Math.random() * lc.height,
+      r:     Math.random() * 1.5 + 0.2,
+      a:     Math.random(),
+      spd:   Math.random() * 0.006 + 0.001,
+      drift: (Math.random() - 0.5) * 0.05
     });
+  }
 
-    // Loader hide after page load
-    window.addEventListener('load', function() {
+  for (let i = 0; i < 18; i++) {
+    lAsteroids.push({
+      x:   Math.random() * lc.width,
+      y:   Math.random() * lc.height,
+      r:   Math.random() * 2.5 + 1,
+      vx:  (Math.random() - 0.5) * 0.6,
+      vy:  (Math.random() - 0.5) * 0.6,
+      rot: Math.random() * Math.PI * 2,
+      rs:  (Math.random() - 0.5) * 0.02
+    });
+  }
+
+  let loaderRunning = true;
+
+  function drawLoaderCanvas() {
+    if (!loaderRunning) return;
+    lx.clearRect(0, 0, lc.width, lc.height);
+
+    /* Stars */
+    for (const s of lStars) {
+      s.a += s.spd;
+      if (s.a > 1 || s.a < 0) s.spd *= -1;
+      s.x += s.drift;
+      if (s.x < 0) s.x = lc.width;
+      if (s.x > lc.width) s.x = 0;
+      lx.beginPath();
+      lx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+      lx.fillStyle = `rgba(200,210,255,${Math.max(0, Math.min(1, s.a))})`;
+      lx.fill();
+    }
+
+    /* Asteroids */
+    for (const a of lAsteroids) {
+      a.x  += a.vx;
+      a.y  += a.vy;
+      a.rot += a.rs;
+      if (a.x < -10) a.x = lc.width + 10;
+      if (a.x > lc.width + 10) a.x = -10;
+      if (a.y < -10) a.y = lc.height + 10;
+      if (a.y > lc.height + 10) a.y = -10;
+
+      lx.save();
+      lx.translate(a.x, a.y);
+      lx.rotate(a.rot);
+      lx.beginPath();
+      /* Slightly irregular rock shape */
+      for (let p = 0; p < 6; p++) {
+        const angle = (p / 6) * Math.PI * 2;
+        const rad   = a.r * (0.75 + Math.sin(p * 2.3) * 0.25);
+        if (p === 0) lx.moveTo(Math.cos(angle) * rad, Math.sin(angle) * rad);
+        else         lx.lineTo(Math.cos(angle) * rad, Math.sin(angle) * rad);
+      }
+      lx.closePath();
+      lx.fillStyle = 'rgba(160,155,170,0.55)';
+      lx.fill();
+      lx.restore();
+    }
+
+    requestAnimationFrame(drawLoaderCanvas);
+  }
+  drawLoaderCanvas();
+
+  /* Stop loader canvas after it hides */
+  window.addEventListener('loaderHide', () => { loaderRunning = false; });
+})();
+
+/* ── LOADER HIDE ─────────────────────────── */
+window.addEventListener('load', () => {
+  setTimeout(() => {
+    const loader = document.getElementById('loader');
+    if (loader) {
+      loader.classList.add('hidden');
+      window.dispatchEvent(new Event('loaderHide'));
+    }
+  }, 2400);
+});
+
+/* ── CURSOR GLOW ─────────────────────────── */
+const glow = document.getElementById('cursorGlow');
+let mouseX = window.innerWidth / 2;
+let mouseY = window.innerHeight / 2;
+let glowX  = mouseX;
+let glowY  = mouseY;
+
+document.addEventListener('mousemove', e => {
+  mouseX = e.clientX;
+  mouseY = e.clientY;
+});
+
+(function animateGlow() {
+  glowX += (mouseX - glowX) * 0.08;
+  glowY += (mouseY - glowY) * 0.08;
+  if (glow) {
+    glow.style.left = glowX + 'px';
+    glow.style.top  = glowY + 'px';
+  }
+  requestAnimationFrame(animateGlow);
+})();
+
+/* ── MAIN STAR/ASTEROID CANVAS ───────────── */
+const canvas = document.getElementById('starCanvas');
+const ctx    = canvas.getContext('2d');
+let stars      = [];
+let nebulae    = [];
+let asteroids  = [];
+
+function resizeCanvas() {
+  canvas.width  = window.innerWidth;
+  canvas.height = document.documentElement.scrollHeight;
+  initSpace();
+}
+
+function initSpace() {
+  stars     = [];
+  nebulae   = [];
+  asteroids = [];
+
+  const area  = canvas.width * canvas.height;
+  const sCount = Math.floor(area / 4800);
+  const aCount = Math.floor(area / 28000);
+
+  /* Stars — 3 tiers */
+  for (let i = 0; i < sCount; i++) {
+    const tier = Math.random();
+    stars.push({
+      x:     Math.random() * canvas.width,
+      y:     Math.random() * canvas.height,
+      r:     tier < 0.70 ? Math.random() * 0.75 + 0.15
+           : tier < 0.92 ? Math.random() * 1.3  + 0.8
+           :                Math.random() * 2.0  + 1.4,
+      a:     Math.random(),
+      spd:   Math.random() * 0.004 + 0.001,
+      drift: (Math.random() - 0.5) * 0.025,
+      hue:   Math.random() < 0.15 ? '#aac4ff'
+           : Math.random() < 0.25 ? '#ffd6a5'
+           : '#ffffff'
+    });
+  }
+
+  /* Nebula clouds */
+  const nebHues = [[108,99,255],[0,212,170],[255,107,107],[180,80,255],[0,180,220]];
+  for (let i = 0; i < 8; i++) {
+    const h = nebHues[i % nebHues.length];
+    nebulae.push({
+      x:     Math.random() * canvas.width,
+      y:     Math.random() * canvas.height,
+      rx:    Math.random() * 260 + 120,
+      ry:    Math.random() * 150 + 70,
+      h,
+      a:     Math.random() * 0.045 + 0.008,
+      angle: Math.random() * Math.PI
+    });
+  }
+
+  /* Moving asteroids */
+  for (let i = 0; i < aCount; i++) {
+    asteroids.push({
+      x:   Math.random() * canvas.width,
+      y:   Math.random() * canvas.height,
+      r:   Math.random() * 3 + 1,
+      vx:  (Math.random() - 0.5) * 0.4,
+      vy:  (Math.random() - 0.5) * 0.4,
+      rot: Math.random() * Math.PI * 2,
+      rs:  (Math.random() - 0.5) * 0.012,
+      a:   Math.random() * 0.4 + 0.25
+    });
+  }
+}
+
+function drawSpace() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+  /* Nebulae first */
+  for (const n of nebulae) {
+    ctx.save();
+    ctx.translate(n.x, n.y);
+    ctx.rotate(n.angle);
+    const g = ctx.createRadialGradient(0, 0, 0, 0, 0, n.rx);
+    g.addColorStop(0,   `rgba(${n.h[0]},${n.h[1]},${n.h[2]},${n.a * 2})`);
+    g.addColorStop(0.5, `rgba(${n.h[0]},${n.h[1]},${n.h[2]},${n.a})`);
+    g.addColorStop(1,   `rgba(${n.h[0]},${n.h[1]},${n.h[2]},0)`);
+    ctx.scale(1, n.ry / n.rx);
+    ctx.beginPath();
+    ctx.arc(0, 0, n.rx, 0, Math.PI * 2);
+    ctx.fillStyle = g;
+    ctx.fill();
+    ctx.restore();
+  }
+
+  /* Stars */
+  for (const s of stars) {
+    s.a += s.spd;
+    if (s.a > 1 || s.a < 0) s.spd *= -1;
+    s.x += s.drift;
+    if (s.x < 0) s.x = canvas.width;
+    if (s.x > canvas.width) s.x = 0;
+
+    const alpha = Math.max(0, Math.min(1, s.a));
+
+    /* Halo for bright stars */
+    if (s.r > 1.6) {
+      const hg = ctx.createRadialGradient(s.x, s.y, 0, s.x, s.y, s.r * 5);
+      hg.addColorStop(0, s.hue === '#ffffff' ? `rgba(255,255,255,${alpha * 0.35})` : s.hue);
+      hg.addColorStop(1, 'transparent');
+      ctx.fillStyle = hg;
+      ctx.beginPath();
+      ctx.arc(s.x, s.y, s.r * 5, 0, Math.PI * 2);
+      ctx.fill();
+    }
+
+    ctx.globalAlpha = alpha;
+    ctx.beginPath();
+    ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+    ctx.fillStyle = s.hue;
+    ctx.fill();
+    ctx.globalAlpha = 1;
+  }
+
+  /* Moving asteroids */
+  for (const a of asteroids) {
+    a.x   += a.vx;
+    a.y   += a.vy;
+    a.rot += a.rs;
+    if (a.x < -20) a.x = canvas.width + 20;
+    if (a.x > canvas.width + 20) a.x = -20;
+    if (a.y < -20) a.y = a.y; /* asteroids don't wrap vertically — they just drift */
+
+    ctx.save();
+    ctx.globalAlpha = a.a;
+    ctx.translate(a.x, a.y);
+    ctx.rotate(a.rot);
+    ctx.beginPath();
+    for (let p = 0; p < 7; p++) {
+      const angle = (p / 7) * Math.PI * 2;
+      const rad   = a.r * (0.7 + Math.sin(p * 2.1 + a.rot) * 0.3);
+      if (p === 0) ctx.moveTo(Math.cos(angle) * rad, Math.sin(angle) * rad);
+      else         ctx.lineTo(Math.cos(angle) * rad, Math.sin(angle) * rad);
+    }
+    ctx.closePath();
+    ctx.fillStyle   = 'rgba(180,172,195,0.8)';
+    ctx.strokeStyle = 'rgba(220,215,235,0.3)';
+    ctx.lineWidth   = 0.5;
+    ctx.fill();
+    ctx.stroke();
+    ctx.restore();
+  }
+
+  requestAnimationFrame(drawSpace);
+}
+
+window.addEventListener('resize', resizeCanvas);
+resizeCanvas();
+drawSpace();
+
+/* ── NAVBAR SCROLL ───────────────────────── */
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  navbar.classList.toggle('scrolled', window.scrollY > 60);
+  updateActiveNav();
+}, { passive: true });
+
+/* ── ACTIVE NAV LINK ─────────────────────── */
+function updateActiveNav() {
+  const sections = document.querySelectorAll('section[id]');
+  const scrollY  = window.scrollY + 120;
+  let current    = '';
+  sections.forEach(s => { if (scrollY >= s.offsetTop) current = s.id; });
+  document.querySelectorAll('.nav-link').forEach(link => {
+    link.classList.toggle('active', link.getAttribute('href') === '#' + current);
+  });
+}
+
+/* ── MOBILE MENU ─────────────────────────── */
+const navToggle  = document.getElementById('navToggle');
+const mobileMenu = document.getElementById('mobileMenu');
+let menuOpen     = false;
+
+function setMenu(open) {
+  menuOpen = open;
+  mobileMenu.classList.toggle('open', open);
+  const spans = navToggle.querySelectorAll('span');
+  spans[0].style.transform = open ? 'rotate(45deg) translate(4.5px, 4.5px)' : '';
+  spans[1].style.opacity   = open ? '0' : '';
+  spans[2].style.transform = open ? 'rotate(-45deg) translate(4.5px, -4.5px)' : '';
+}
+
+navToggle.addEventListener('click', () => setMenu(!menuOpen));
+mobileMenu.querySelectorAll('.mob-link').forEach(l => l.addEventListener('click', () => setMenu(false)));
+
+/* ── SCROLL REVEAL (Framer-style) ────────── */
+const revealObs = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (!entry.isIntersecting) return;
+    const el    = entry.target;
+    const delay = parseInt(el.dataset.delay || '0');
+    setTimeout(() => el.classList.add('in-view'), delay);
+    revealObs.unobserve(el);
+  });
+}, { threshold: 0.10, rootMargin: '0px 0px -50px 0px' });
+
+document.querySelectorAll('[data-animate]').forEach(el => revealObs.observe(el));
+
+/* Staggered grid children */
+const gridObs = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (!entry.isIntersecting) return;
+    const children = entry.target.querySelectorAll(
+      '.portfolio-item, .service-card, .edu-card, .cert-item, .extra-item, .skill-group, .timeline-item'
+    );
+    children.forEach((child, i) => {
+      child.style.opacity    = '0';
+      child.style.transform  = 'translateY(28px)';
+      child.style.transition = `opacity 0.55s cubic-bezier(0.16,1,0.3,1) ${i * 60}ms, transform 0.55s cubic-bezier(0.16,1,0.3,1) ${i * 60}ms`;
       setTimeout(() => {
-        const loader = document.querySelector('.loader');
-        if (loader) loader.classList.add('hidden');
-      }, 2000);
+        child.style.opacity   = '1';
+        child.style.transform = 'none';
+      }, 60 + i * 60);
     });
+    gridObs.unobserve(entry.target);
+  });
+}, { threshold: 0.06 });
 
-    // Roles text animation
-    const roles = ["Data Insight Generator", "AI/ML Engineer", "Data Analyst", "Analytical Thinker"];
+document.querySelectorAll(
+  '.portfolio-grid, .services-grid, .edu-grid, .cert-list, .extras-grid, .skills-grid, .timeline'
+).forEach(el => gridObs.observe(el));
 
-    let index = 0;
-    const dynamicText = document.getElementById("dynamic-text");
+/* ── TYPEWRITER ANIMATION ────────────────── */
+const roles       = ['intelligent systems', 'ML pipelines', 'computer vision apps', 'data analytics', 'blockchain solutions'];
+const dynEl       = document.getElementById('dynamicText');
+let roleIdx       = 0;
+let charIdx       = 0;
+let deleting      = false;
 
-    function changeRole() {
-      if (!dynamicText) return;
-      dynamicText.style.opacity = 0;
-      setTimeout(() => {
-        dynamicText.textContent = roles[index];
-        dynamicText.style.opacity = 1;
-        index = (index + 1) % roles.length;
-      }, 1000);
+function type() {
+  if (!dynEl) return;
+  const cur  = roles[roleIdx];
+  if (deleting) {
+    dynEl.textContent = cur.substring(0, charIdx - 1);
+    charIdx--;
+  } else {
+    dynEl.textContent = cur.substring(0, charIdx + 1);
+    charIdx++;
+  }
+  let wait = deleting ? 42 : 88;
+  if (!deleting && charIdx === cur.length) {
+    wait = 2000; deleting = true;
+  } else if (deleting && charIdx === 0) {
+    deleting = false;
+    roleIdx  = (roleIdx + 1) % roles.length;
+    wait     = 380;
+  }
+  setTimeout(type, wait);
+}
+setTimeout(type, 2200);
+
+/* ── MODAL FUNCTIONS ─────────────────────── */
+function openModal(id) {
+  const modal = document.getElementById(id);
+  if (!modal) return;
+  modal.classList.add('open');
+  document.body.style.overflow = 'hidden';
+  /* Reset animation so spring fires each time */
+  const mc = modal.querySelector('.modal-content');
+  if (mc) { mc.style.animation = 'none'; mc.offsetHeight; mc.style.animation = ''; }
+}
+
+function closeModal(id) {
+  const modal = document.getElementById(id);
+  if (!modal) return;
+  const mc = modal.querySelector('.modal-content');
+  if (mc) {
+    mc.style.animation = 'modal-close 0.28s cubic-bezier(0.4,0,0.2,1) forwards';
+    setTimeout(() => {
+      modal.classList.remove('open');
+      mc.style.animation = '';
+      document.body.style.overflow = '';
+    }, 280);
+  } else {
+    modal.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+}
+
+/* Inject close keyframe once */
+const ks = document.createElement('style');
+ks.textContent = '@keyframes modal-close { to { opacity:0; transform:scale(0.9) translateY(24px); } }';
+document.head.appendChild(ks);
+
+/* Backdrop click and Escape key */
+document.querySelectorAll('.modal').forEach(modal => {
+  modal.addEventListener('click', e => { if (e.target === modal) closeModal(modal.id); });
+});
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') {
+    document.querySelectorAll('.modal.open').forEach(m => closeModal(m.id));
+  }
+});
+
+/* Expose globally for onclick attributes */
+window.openModal  = openModal;
+window.closeModal = closeModal;
+
+/* ── CONTACT FORM ────────────────────────── */
+document.addEventListener('DOMContentLoaded', () => {
+  const form = document.getElementById('contactForm');
+  const msg  = document.getElementById('responseMsg');
+  if (!form) return;
+
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+    const name    = document.getElementById('name').value.trim();
+    const email   = document.getElementById('email').value.trim();
+    const message = document.getElementById('message').value.trim();
+
+    if (!name || !email || !message) {
+      msg.textContent = 'Please fill in all fields.';
+      msg.className   = 'response-msg error';
+      return;
     }
-    setInterval(changeRole, 3000);
 
-    // Modal functionality
-    function openModal(id) {
-      const modal = document.getElementById(id);
-      if (modal) modal.style.display = "flex";
-    }
+    const btn = form.querySelector('.submit-btn');
+    btn.textContent = 'Sending…';
+    btn.disabled    = true;
 
-    function closeModal(id) {
-      const modal = document.getElementById(id);
-      if (modal) modal.style.display = "none";
-    }
-
-    window.onclick = function(event) {
-      const modals = document.querySelectorAll(".modal");
-      modals.forEach(m => {
-        if (event.target === m) m.style.display = "none";
-      });
-    }
-
-    document.addEventListener("DOMContentLoaded", () => {
-      const buttons = document.querySelectorAll(".btn-view");
-      buttons.forEach((btn, i) => {
-        btn.addEventListener("click", (event) => {
-          event.preventDefault();
-          openModal(`modal${i + 1}`);
-        });
-      });
+    emailjs.send('service_68forxu', 'template_n7hfy2u', {
+      from_name: name, from_email: email, message,
+      to_email: 'sameerfayaz1028@gmail.com'
+    })
+    .then(() => {
+      msg.textContent = "✓ Message sent! I'll get back to you soon.";
+      msg.className   = 'response-msg success';
+      form.reset();
+    })
+    .catch(err => {
+      console.error(err);
+      msg.textContent = 'Oops! Something went wrong. Please try again.';
+      msg.className   = 'response-msg error';
+    })
+    .finally(() => {
+      btn.innerHTML = 'Send Message <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>';
+      btn.disabled  = false;
     });
+  });
+});
 
-    // EmailJS Contact Form
-    const form = document.getElementById('contactForm');
-    const responseMsg = document.getElementById('responseMsg');
-
-    if (form) {
-      form.addEventListener('submit', function(event) {
-        event.preventDefault(); // Prevent page reload
-
-        const name = document.getElementById('name').value.trim();
-        const email = document.getElementById('email').value.trim();
-        const message = document.getElementById('message').value.trim();
-
-        if (!name || !email || !message) {
-          responseMsg.style.color = "red";
-          responseMsg.textContent = "Please fill in all fields.";
-          return;
-        }
-
-        const templateParams = {
-          from_name: name,
-          from_email: email,
-          message: message,
-          to_email: "sameerfayaz1028@gmail.com"
-        };
-
-        emailjs.send("service_68forxu", "template_n7hfy2u", templateParams) // Updated template ID
-          .then(function(response) {
-            console.log("SUCCESS!", response.status, response.text);
-            responseMsg.style.color = "green";
-            responseMsg.textContent = "Message sent successfully! Thank you.";
-            form.reset();
-          }, function(error) {
-            console.error("FAILED...", error);
-            responseMsg.style.color = "red";
-            responseMsg.textContent = `Oops! Something went wrong. Please try again. Error: ${error.message || 'Unknown error'}`;
-          });
-      });
-    }
+/* ── SMOOTH SCROLL FOR ALL ANCHORS ───────── */
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+  });
+});
   </script>
 </body>
 </html>
